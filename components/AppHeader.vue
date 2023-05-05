@@ -4,7 +4,7 @@
         <NuxtLink to="/" class="font-bold text-xl">
             <span class="text-[#FF8F52]">RIKI</span> VC
         </NuxtLink>
-        <ul class="flex flex-row gap-4 font-medium">
+        <ul class="flex flex-row gap-8 font-medium">
           <li class="transition hover:text-[#FF8F52]"><NuxtLink to="/persons">All Persons</NuxtLink></li>
           <li class="transition hover:text-[#FF8F52]"><NuxtLink to="/projects">All Projects</NuxtLink></li>
           <li class="transition hover:text-[#FF8F52]"><NuxtLink to="/areas">All Areas</NuxtLink></li>
