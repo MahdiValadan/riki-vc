@@ -1,8 +1,11 @@
 <template>
+    <!-- Main container -->
     <div class="flex flex-col items-center bg-gray-200 pt-5 pl-28 pr-28 pb-14">
+        <!-- intro title -->
         <div class="title-container">
             <Subtitle :text="introTitle" />
         </div>
+        <!-- intro panel -->
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-1">
             <p class="font-roboto font-semibold text-black text-5xl leading-59 pt-20 pb-14">Fueling Innovation: Where Vision
                 Meets
@@ -16,7 +19,7 @@
                 companies. Join us on this exciting journey and be a part of shaping the future of technology and beyond.
             </p>
             <img class="w-full" src="~/assets/images/home/home_intro.jpg" />
-            <div class="w-full flex flex-col justify-start pt-20 pl-20 pr-32 pb-14">
+            <div class="w-full flex flex-col justify-start pt-20 px-20 pb-14">
                 <p class="font-extrabold text-4xl leading-14">Our Motivation:</p>
                 <div class="flex flex-row justify-between pt-12 font-bold text-5xl text-[#FF8F52]">
                     <p>PROSPERITY</p>
@@ -26,10 +29,11 @@
             </div>
         </div>
 
-
+        <!-- team title -->
         <div class="title-container mt-20">
             <Subtitle :text="teamTitle" />
         </div>
+        <!-- team panel -->
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-row items-center px-10 py-16 shadow-md mx-1 my-1">
             <img class="w-3/5" src="~/assets/images/home/team.jpg" />
             <div class="flex flex-col justify-end">
@@ -51,8 +55,9 @@
                     table, working together to identify and support the most promising investment opportunities and help our
                     portfolio companies thrive.
                 </p>
+                <!-- this button goes to All Persons tab -->
                 <div class="flex justify-end">
-                    <OrangeButton text="Discover Team" />
+                    <OrangeButton link="/persons" buttonText="Discover Team" />
                 </div>
             </div>
         </div>
