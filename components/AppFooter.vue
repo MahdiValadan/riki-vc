@@ -6,7 +6,12 @@
         <div class="flex flex-row gap-10 text-[#D9D9D9]">
             <div class="w-7/12">
                 <p class="text-justify my-6">
-                    As a registered and licensed venture capital firm, we are fully compliant with all applicable regulations and standards governing our industry. Our team of professionals hold various licenses and certifications, including FINRA registrations, Series 7 and 63 licenses, and other relevant qualifications. We take pride in maintaining a culture of compliance and transparency, and we are dedicated to providing our investors with the best possible experience while minimizing risk and maximizing returns.
+                    As a registered and licensed venture capital firm, we are fully compliant with all applicable
+                    regulations and standards governing our industry. Our team of professionals hold various licenses and
+                    certifications, including FINRA registrations, Series 7 and 63 licenses, and other relevant
+                    qualifications. We take pride in maintaining a culture of compliance and transparency, and we are
+                    dedicated to providing our investors with the best possible experience while minimizing risk and
+                    maximizing returns.
                 </p>
             </div>
             <div>
