@@ -27,7 +27,7 @@
         </div>
 
 
-        <div class="title-container">
+        <div class="title-container mt-20">
             <Subtitle :text="teamTitle" />
         </div>
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-row items-center px-10 py-16 shadow-md mx-1 my-1">
