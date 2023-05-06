@@ -3,11 +3,11 @@
     <nav class="w-full px-16 py-4 flex flex-row justify-between items-center bg-white">
       <NuxtLink
         to="/"
-        class="font-bold text-4xl"
+        class="font-bold text-2xl"
       >
         <span class="text-[#FF8F52]">RIKI</span> VC
       </NuxtLink>
-      <ul class="font-bold text-lg leading-7 flex flex-row items-center gap-12 py-0">
+      <ul class="font-medium text-base flex flex-row items-center gap-8">
         <li class="transition hover:text-[#FF8F52]">
           <NuxtLink to="/persons">All Persons</NuxtLink>
         </li>
