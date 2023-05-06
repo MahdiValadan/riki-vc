@@ -1,20 +1,8 @@
 /* Header */
 
-.ul-font {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 60px;
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
 }
-
-.homelink {
-    font-size: 40px;
-}
-
 /* body */
 
 body {
