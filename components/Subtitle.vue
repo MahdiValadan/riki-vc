@@ -18,9 +18,4 @@
   font-family: 'Roboto', sans-serif;
   }
 
-  .title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  }
   </style>
