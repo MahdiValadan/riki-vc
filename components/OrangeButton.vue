@@ -7,10 +7,12 @@
 <script>
 export default {
   props: {
+    // the link where you want to go to
     link: {
         type: String,
         required: true
     },
+    // the text to show in the button
     buttonText: {
       type: String,
       required: true
