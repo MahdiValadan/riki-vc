@@ -1,5 +1,6 @@
 <template>
-    <div
+    <NuxtLink
+        :to="url"
         id="project"
         class="bg-[#FF8F52] text-white w-60 "
     >
@@ -9,10 +10,10 @@
         >
         <div class="p-4">
             <h2 class="text-lg font-bold">{{ project.name }}</h2>
-            <h3 class="text-base">{{ project.area }}</h3>
-            <p class="text-sm my-2 text-justify">{{ project.info }}</p>
+            <h3 class="text-sm font-semibold">{{ project.area }}</h3>
+            <p class="text-sm my-1">{{ project.info }}</p>
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 <script setup>
@@ -22,4 +23,7 @@ const props = defineProps({
         required: true,
     },
 })
+// let url = props.project.name.replace(/\s+/g, '-').toLowerCase();
+let url = props.project.id
+url = '/projects/' + url
 </script>

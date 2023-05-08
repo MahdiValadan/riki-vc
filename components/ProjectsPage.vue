@@ -38,7 +38,7 @@
             id="projects-container"
             class="w-10/12 flex flex-col items-center p-6"
         >
-            <h1 class="text-xl border-black border-y-2 mb-8">{{ title }}</h1>
+            <h1 class="text-2xl border-black border-y-2 mb-12">{{ title }}</h1>
             <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
                 <Project
                     v-for="project in projectsList"
