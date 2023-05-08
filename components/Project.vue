@@ -1,19 +1,29 @@
 <template>
-    <div
+    <NuxtLink
+        :to="url"
         id="project"
-        class="bg-[#FF8F52] text-white w-1/5 "
+        class="bg-[#FF8F52] text-white w-60 "
     >
         <img
-            src="~/assets/images/project/prj-1.jpg"
-            alt=""
+            :src="'/images/projects/' + project.image + '.jpg'"
+            alt="project image"
         >
         <div class="p-4">
-            <h2 class="text-lg font-bold">Name</h2>
-            <h3 class="text-base">Area</h3>
-            <p class="text-sm my-2 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptatum
-                nesciunt?
-            </p>
+            <h2 class="text-lg font-bold">{{ project.name }}</h2>
+            <h3 class="text-sm font-semibold">{{ project.area }}</h3>
+            <p class="text-sm my-1">{{ project.info }}</p>
         </div>
-    </div>
+    </NuxtLink>
 </template>
+
+<script setup>
+const props = defineProps({
+    project: {
+        type: Object,
+        required: true,
+    },
+})
+// let url = props.project.name.replace(/\s+/g, '-').toLowerCase();
+let url = props.project.id
+url = '/projects/' + url
+</script>

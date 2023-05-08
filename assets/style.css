@@ -3,6 +3,11 @@
 .font-roboto {
     font-family: 'Roboto', sans-serif;
 }
+
+ul li .router-link-exact-active {
+    color: #ff8f52;
+    font-weight: bold;
+}
 /* body */
 
 body {

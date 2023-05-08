@@ -3,7 +3,7 @@
     <nav class="w-full px-16 py-4 flex flex-row justify-between items-center bg-white">
       <NuxtLink
         to="/"
-        class="font-bold text-2xl"
+        class="font-bold text-4xl"
       >
         <span class="text-[#FF8F52]">RIKI</span> VC
       </NuxtLink>
