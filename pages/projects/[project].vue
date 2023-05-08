@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-row min-h-screen">
-        <div>
+    <div class="flex flex-row h-screen justify-center items-center">
+        <div class="bg-white w-5/6 h-4/6">
            <h1 class="text-black">{{ project.name }}</h1> 
         </div>
     </div>
