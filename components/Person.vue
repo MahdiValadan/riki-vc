@@ -1,6 +1,6 @@
 <template>
-    <div id="person" class="w-1/4">
-        <img :src="picture" alt="">
+    <div id="person" class="w-1/5 bg-white">
+        <img :src="'/images/people/'+picture" alt="">
         <div class="p-4">
             <h2 class="text-lg font-bold">{{ name }}</h2>
             <h3 class="text-base">{{ role }}</h3>

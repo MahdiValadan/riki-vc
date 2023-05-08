@@ -8,7 +8,7 @@
         <!-- members info -->
         <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
             <person v-for="person in teamMembers" :key="person.id" :name="person.name" :role="person.role" :cv="person.cv"
-                :picture="baseUrl+person.picture" />
+                :picture="person.picture" />
         </div>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
 
         return {
             memberTitle: 'All Members',
-            baseUrl: '~/assets/images/people/',
+            //baseUrl: '~/assets/images/people/',
             teamMembers: [
                 { id: 1, name: 'Luciano Balbo', role: 'Developer', cv: 'short cv', picture: 'Luciano_Balbo_02.jpg' },
                 { id: 2, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
