@@ -31,14 +31,10 @@
         >
             <h1 class="text-xl border-black border-y-2 mb-8">{{ title }}</h1>
             <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
-                <Project></Project>
-                <Project></Project>
-                <Project></Project>
-                <Project></Project>
-                <Project></Project>
-                <div class="w-1/5"></div>
-                <div class="w-1/5"></div>
-                <div class="w-1/5"></div>
+                <Project v-for="project in projectsList" :key="project.id" :project="project" />
+                <div class="w-60"></div>
+                <div class="w-60"></div>
+                <div class="w-60"></div>
             </div>
         </div>
     </div>
@@ -56,6 +52,15 @@ export default {
             type: String,
             required: true,
             default: 'All Projects'
+        }
+    },
+    async mounted() {
+        const supabase = useSupabaseClient()
+        const { data, error } = await supabase.from('projects').select('*')
+        if(error){
+            alert('Error')
+        } else if(data){
+            this.projectsList = data
         }
     }
 }
