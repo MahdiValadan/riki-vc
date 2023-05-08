@@ -17,10 +17,19 @@
                         Most Relevant Projects
                     </NuxtLink>
                 </li>
-                <li class="transition hover:text-[#FF8F52]">
-                    <NuxtLink to="/projects/projects-by-area">
-                        Projects By Area
-                    </NuxtLink>
+                <li>
+                    Projects By Area
+                    <ul class="flex flex-col gap-2 text-sm font-medium mt-2 ml-6">
+                        <li class="transition hover:text-[#FF8F52]">
+                            <NuxtLink to="/projects/projects-by-area/environment">Environment</NuxtLink>
+                        </li>
+                        <li class="transition hover:text-[#FF8F52]">
+                            <NuxtLink to="/projects/projects-by-area/health">Health</NuxtLink>
+                        </li>
+                        <li class="transition hover:text-[#FF8F52]">
+                            <NuxtLink to="/projects/projects-by-area/tech">Tech</NuxtLink>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -31,7 +40,11 @@
         >
             <h1 class="text-xl border-black border-y-2 mb-8">{{ title }}</h1>
             <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
-                <Project v-for="project in projectsList" :key="project.id" :project="project" />
+                <Project
+                    v-for="project in projectsList"
+                    :key="project.id"
+                    :project="project"
+                />
                 <div class="w-60"></div>
                 <div class="w-60"></div>
                 <div class="w-60"></div>
@@ -52,16 +65,49 @@ export default {
             type: String,
             required: true,
             default: 'All Projects'
-        }
+        },
+        area: String
     },
     async mounted() {
         const supabase = useSupabaseClient()
-        const { data, error } = await supabase.from('projects').select('*')
-        if(error){
-            alert('Error')
-        } else if(data){
-            this.projectsList = data
+        let { data, error } = {}
+        if (this.area) {
+            ({ data, error } = await supabase.from('projects').select('*').eq('area', this.area))
+            if (error) {
+                alert('Error')
+            } else if (data) {
+                this.projectsList = data
+            }
         }
+        else {
+            switch (this.title) {
+                case 'All Projects':
+                    ({ data, error } = await supabase.from('projects').select('*'))
+                    if (error) {
+                        alert('Error')
+                    } else if (data) {
+                        this.projectsList = data
+                    }
+                    break;
+                case 'Most Relevant Projects':
+                    ({ data, error } = await supabase.from('projects').select('*').eq('isMR', true))
+                    if (error) {
+                        alert('Error')
+                    } else if (data) {
+                        this.projectsList = data
+                    }
+                    break;
+                default:
+                    ({ data, error } = await supabase.from('projects').select('*'))
+                    if (error) {
+                        alert('Error')
+                    } else if (data) {
+                        this.projectsList = data
+                    }
+                    break;
+            }
+        }
+
     }
 }
 </script>

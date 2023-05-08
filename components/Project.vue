@@ -4,7 +4,7 @@
         class="bg-[#FF8F52] text-white w-60 "
     >
         <img
-            :src="'/images/projects/'+project.image+'.jpg'"
+            :src="'/images/projects/' + project.image + '.jpg'"
             alt="project image"
         >
         <div class="p-4">
@@ -15,18 +15,11 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-
-        }
+<script setup>
+const props = defineProps({
+    project: {
+        type: Object,
+        required: true,
     },
-    props: {
-        project: {
-            type: Object,
-            required: true,
-        },
-    }
-}
+})
 </script>
