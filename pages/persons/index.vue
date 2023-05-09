@@ -1,13 +1,13 @@
 <template>
     <!-- Main Container -->
-    <div class="flex flex-col items-center bg-gray-200 pt-5 pl-28 pr-28 pb-14">
+    <div class="flex flex-col justify-center items-center bg-gray-200 pt-5 pl-28 pr-28 pb-14">
         <!-- title  -->
         <div>
             <smallSubtitle :text="memberTitle"></smallSubtitle>
         </div>
         <!-- members info -->
         <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
-            <person v-for="person in membersList" :key="person.id" :name="person.name" :role="person.role" />
+            <person v-for="person in membersList" :key="person.id" :memberInfo="person"/>
         </div>
     </div>
 </template>

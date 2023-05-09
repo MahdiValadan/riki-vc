@@ -1,10 +1,10 @@
 <template>
-    <div id="person" class="w-60 bg-white">
-        <img :src="'/images/people/'+picture" alt="">
-        <div class="p-4">
-            <h2 class="text-lg font-bold">{{ name }}</h2>
-            <h3 class="text-base">{{ role }}</h3>
-            <p class="text-sm my-2 text-justify">{{ cv }}</p>
+    <div id="person" class="w-72 bg-white">
+        <img id="profile" :src="memberInfo.image" alt="">
+        <div id="info" class="p-4">
+            <h2 class="text-2xl font-bold">{{ memberInfo.name }}</h2>
+            <br/>
+            <h3 class="text-xs font-bold">{{ memberInfo.role }}</h3>
         </div>
     </div>
 </template>
@@ -13,21 +13,9 @@
 <script>
 export default {
     props: {
-        name: {
-            type: String,
-            required: true
-        },
-        role: {
-            type: String,
-            required: true
-        },
-        cv: {
-            type: String,
-            required: true
-        },
-        picture: {
-            type: String,
-            required: true
+        memberInfo: {
+            type: Object,
+            require: true
         }
     }
 }
