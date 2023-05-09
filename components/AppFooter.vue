@@ -1,10 +1,10 @@
 <template>
-    <footer class="bg-[#454545] px-20 py-8">
+    <footer class="bg-[#454545] px-10 lg:px-20 py-8">
         <div class="font-bold text-xl text-white">
             <span class="text-[#FF8F52]">RIKI</span> VC
         </div>
-        <div class="flex flex-row gap-10 text-[#D9D9D9]">
-            <div class="w-7/12">
+        <div class="flex flex-row flex-wrap gap-20 text-[#D9D9D9]">
+            <div class="w-full md:w-6/12">
                 <p class="text-justify my-6">
                     As a registered and licensed venture capital firm, we are fully compliant with all applicable
                     regulations and standards governing our industry. Our team of professionals hold various licenses and

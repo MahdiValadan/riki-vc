@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import smallSubtitle from '~/components/small-Subtitle.vue';
+import smallSubtitle from '~/components/SmallSubtitle.vue';
 import person from '~/components/Person.vue';
 
 export default {
