@@ -7,8 +7,7 @@
         </div>
         <!-- members info -->
         <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
-            <person v-for="person in teamMembers" :key="person.id" :name="person.name" :role="person.role" :cv="person.cv"
-                :picture="person.picture" />
+            <person v-for="person in membersList" :key="person.id" :name="person.name" :role="person.role" />
         </div>
     </div>
 </template>
@@ -27,20 +26,17 @@ export default {
         return {
             memberTitle: 'All Members',
             //baseUrl: '~/assets/images/people/',
-            teamMembers: [
-                { id: 1, name: 'Luciano Balbo', role: 'Developer', cv: 'short cv', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 2, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 3, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 4, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 5, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 6, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 7, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 8, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 9, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 10, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 11, name: 'Lorenzo Allevi', role: 'Designer', cv: 'jane_cv.pdf', picture: 'Luciano_Balbo_02.jpg' },
-                { id: 12, name: 'Raffaele Fedele', role: 'Marketer', cv: 'bob_cv.pdf', picture: 'Luciano_Balbo_02.jpg' }
-            ]
+            membersList: []
+        }
+    },
+    async mounted() {
+        const supabase = useSupabaseClient();
+        let { data, error } = {};
+        ({ data, error } = await supabase.from('member').select('*'));
+        if (error) {
+            alert('Error');
+        } else if (data) {
+            this.membersList = data;
         }
     }
 }
