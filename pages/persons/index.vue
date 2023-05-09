@@ -34,7 +34,7 @@ export default {
         let { data, error } = {};
         ({ data, error } = await supabase.from('member').select('*'));
         if (error) {
-            alert('Error');
+            alert('Error: Server Connection');
         } else if (data) {
             this.membersList = data;
         }

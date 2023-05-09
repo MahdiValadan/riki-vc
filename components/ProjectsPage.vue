@@ -74,7 +74,7 @@ export default {
         if (this.area) {
             ({ data, error } = await supabase.from('projects').select('*').eq('area', this.area))
             if (error) {
-                alert('Error')
+                alert('Error: Server Connection')
             } else if (data) {
                 this.projectsList = data
             }
@@ -84,7 +84,7 @@ export default {
                 case 'All Projects':
                     ({ data, error } = await supabase.from('projects').select('*'))
                     if (error) {
-                        alert('Error')
+                        alert('Error: Server Connection')
                     } else if (data) {
                         this.projectsList = data
                     }
@@ -92,7 +92,7 @@ export default {
                 case 'Most Relevant Projects':
                     ({ data, error } = await supabase.from('projects').select('*').eq('isMR', true))
                     if (error) {
-                        alert('Error')
+                        alert('Error: Server Connection')
                     } else if (data) {
                         this.projectsList = data
                     }
@@ -100,7 +100,7 @@ export default {
                 default:
                     ({ data, error } = await supabase.from('projects').select('*'))
                     if (error) {
-                        alert('Error')
+                        alert('Error: Server Connection')
                     } else if (data) {
                         this.projectsList = data
                     }
