@@ -1,21 +1,27 @@
 <template>
-    <div id="person" class="w-72 bg-white">
-        <img id="profile" :src="memberInfo.image" alt="">
+    <NuxtLink id="person" :to="personUrl" class="w-72 bg-white">
+        <img id="profile" :src="personInfo.image" alt="">
         <div id="info" class="p-4">
-            <h2 class="text-2xl font-bold">{{ memberInfo.name }}</h2>
+            <h2 class="text-2xl font-bold">{{ personInfo.name }}</h2>
             <br/>
-            <h3 class="text-xs font-bold">{{ memberInfo.role }}</h3>
+            <h3 class="text-xs font-bold">{{ personInfo.role }}</h3>
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 
 <script>
+
 export default {
     props: {
-        memberInfo: {
+        personInfo: {
             type: Object,
             require: true
+        }
+    },
+    computed: {
+        personUrl() {
+            return `/persons/${this.personInfo.id}`
         }
     }
 }
