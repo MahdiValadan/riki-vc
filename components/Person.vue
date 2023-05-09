@@ -1,5 +1,5 @@
 <template>
-    <div id="person" class="w-1/5 bg-white">
+    <div id="person" class="w-60 bg-white">
         <img :src="'/images/people/'+picture" alt="">
         <div class="p-4">
             <h2 class="text-lg font-bold">{{ name }}</h2>
