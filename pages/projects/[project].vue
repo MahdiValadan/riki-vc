@@ -40,7 +40,7 @@ let project = {}
 const supabase = useSupabaseClient()
 let { data, error } = await supabase.from('projects').select('*').eq('id', projectID)
 if (error) {
-    alert('Error')
+    alert('Error: Server Connection')
 } else if (data) {
     project = data[0]
 }
