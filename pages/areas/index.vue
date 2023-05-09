@@ -2,6 +2,7 @@
     <!-- Main Container -->
     <div class="flex flex-col items-center min-h-screen">
         <SmallSubtitle text="All Areas" />
+        <Loading v-if="isLoading"></Loading>
         <!-- area container -->
         <div
             id="areas-container"
@@ -24,7 +25,9 @@
 <script setup>
 const supabase = useSupabaseClient()
 let areasList = []
+let isLoading = true
 let { data, error } = await supabase.from('areas').select('*')
+isLoading = false
 if (error) {
     alert('Error: Server Connection')
 } else if (data) {
