@@ -31,9 +31,9 @@ export default {
     async mounted() {
         const supabase = useSupabaseClient();
         let { data, error } = {};
-        ({ data, error } = await supabase.from('person').select('*'));
+        ({ data, error } = await supabase.from('person').select('*').order('id', { ascending: true }));
         if (error) {
-            alert('Error: Server Connection');
+            alert('Error: '+error);
         } else if (data) {
             this.personList = data;
         }
