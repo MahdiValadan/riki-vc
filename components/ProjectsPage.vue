@@ -38,8 +38,9 @@
             id="projects-container"
             class="w-10/12 flex flex-col items-center p-6"
         >
-            <h1 class="text-2xl border-black border-y-2 mb-12">{{ title }}</h1>
-            <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
+            <SmallSubtitle :text="title" />
+            <Loading v-if="isLoading"></Loading>
+            <div class="flex flex-row justify-center flex-wrap gap-6 w-full mt-10">
                 <Project
                     v-for="project in projectsList"
                     :key="project.id"
@@ -57,7 +58,8 @@
 export default {
     data() {
         return {
-            projectsList: []
+            projectsList: [],
+            isLoading: true
         }
     },
     props: {
@@ -107,7 +109,7 @@ export default {
                     break;
             }
         }
-
+        this.isLoading = false
     }
 }
 </script>
