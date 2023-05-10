@@ -4,6 +4,11 @@
         <div class="flex flex-row flex-wrap bg-white w-9/12 min-h-[500px] rounded-md shadow-md">
             <!-- Left Side -->
             <div class="w-full md:w-6/12 py-8 px-12">
+                <Loading
+                    v-if="isLoading"
+                    class="self-center"
+                />
+
                 <img
                     class="border-2 border-[#FF8F52] rounded"
                     :src="'/images/projects/' + project.image + '.jpg'"
@@ -12,21 +17,26 @@
             </div>
             <!-- Right Side -->
             <div class="flex flex-col gap-4 w-full md:w-6/12 p-8">
-                <h2 class="text-black"> 
+                <Loading
+                    v-if="isLoading"
+                    class="self-center"
+                />
+
+                <h2 class="text-black">
                     <span class="font-bold">Project Name: </span>
-                    {{project.name}}
+                    {{ project.name }}
                 </h2>
-                <h2 class="text-black"> 
+                <h2 class="text-black">
                     <span class="font-bold">Project Area: </span>
-                    {{project.area}}
+                    {{ project.area }}
                 </h2>
-                <h2 class="text-black"> 
+                <h2 class="text-black">
                     <span class="font-bold">Project Manager: </span>
                     {{ }}
                 </h2>
-                <h2 class="text-black"> 
+                <h2 class="text-black">
                     <span class="font-bold">Project Info: </span>
-                    {{ project.info}}
+                    {{ project.info }}
                 </h2>
             </div>
         </div>
@@ -38,10 +48,12 @@ const route = useRoute()
 const projectID = route.params.project
 let project = {}
 const supabase = useSupabaseClient()
+let isLoading = true
 let { data, error } = await supabase.from('projects').select('*').eq('id', projectID)
 if (error) {
     alert('Error: Server Connection')
 } else if (data) {
     project = data[0]
 }
+isLoading = false
 </script>

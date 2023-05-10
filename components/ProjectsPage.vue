@@ -39,7 +39,7 @@
             class="flex flex-col items-center w-full lg:w-10/12 p-6"
         >
             <SmallSubtitle :text="title" />
-            <Loading v-if="isLoading"></Loading>
+            <Loading v-if="isLoading" />
             <div class="flex flex-row justify-center flex-wrap gap-8 w-full mt-10">
                 <Project
                     v-for="project in projectsList"
