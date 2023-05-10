@@ -2,7 +2,7 @@
     <NuxtLink
         :to="url"
         id="project"
-        class="bg-[#FF8F52] text-white w-60 shadow-lg hover:animate-pulse"
+        class="bg-[#FF8F52] text-white w-60 h-64 shadow-lg hover:animate-pulse"
     >
         <img
             :src="'/images/projects/' + project.image + '.jpg'"
@@ -10,8 +10,8 @@
         >
         <div class="p-4">
             <h2 class="text-lg font-bold">{{ project.name }}</h2>
-            <h3 class="text-sm font-semibold">{{ project.area }}</h3>
-            <p class="text-sm my-1">{{ project.info }}</p>
+            <h3 class="text-sm font-semibold mt-2">{{ project.area }}</h3>
+            <!-- <p class="text-sm my-1">{{ project.info }}</p> -->
         </div>
     </NuxtLink>
 </template>
