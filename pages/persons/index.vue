@@ -5,6 +5,7 @@
         <div id="all_persons_title">
             <smallSubtitle :text="personTitle"></smallSubtitle>
         </div>
+        <Loading v-if="isLoading"></Loading>
         <!-- members info -->
         <div id="all_persons_list" class="flex flex-row justify-center flex-wrap gap-6 w-full">
             <person v-for="person in personList" :key="person.id" :personInfo="person"/>
@@ -25,7 +26,8 @@ export default {
 
         return {
             personTitle: 'All Members',
-            personList: []
+            personList: [],
+            isLoading: true
         }
     },
     async mounted() {
@@ -37,6 +39,7 @@ export default {
         } else if (data) {
             this.personList = data;
         }
+        this.isLoading = false
     }
 }
 </script>
