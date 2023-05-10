@@ -4,30 +4,51 @@
       <!-- Logo -->
       <NuxtLink
         to="/"
-        class="font-bold text-lg md:text-3xl"
+        class="font-bold text-2xl sm:text-3xl"
       >
         <span class="text-[#FF8F52]">RIKI</span> VC
       </NuxtLink>
       <!-- Links -->
-      <ul class="font-medium text-xs md:text-base flex flex-row items-center gap-7">
-        <li class="transition hover:text-[#FF8F52]">
-          <NuxtLink to="/persons">All Persons</NuxtLink>
-        </li>
-        <li class="transition hover:text-[#FF8F52]">
-          <NuxtLink to="/projects">All Projects</NuxtLink>
-        </li>
-        <li class="transition hover:text-[#FF8F52]">
-          <NuxtLink to="/areas">All Areas</NuxtLink>
-        </li>
-        <li class="transition hover:text-[#FF8F52]">
-          <NuxtLink to="/about">About Us</NuxtLink>
-        </li>
-        <li class="transition hover:text-[#FF8F52]">
-          <NuxtLink to="/contact">Contact Us</NuxtLink>
-        </li>
-      </ul>
+      <!-- Desktop: Nav Links -->
+      <NavLinks />
+      <!-- Small Devices: Menu Button -->
+      <MenuBtn
+        v-if="!isMenuOpen"
+        class="lg:hidden"
+        @click="menuFunction"
+      />
+      <CloseBtn
+        v-if="isMenuOpen"
+        class="lg:hidden"
+        @click="menuFunction"
+      />
     </nav>
+    <!-- Breadcrumb -->
     <div class="bg-[#FF8F52] h-6"></div>
   </header>
+  <!-- Small Devices: Menu  -->
+  <Menu v-if="isMenuOpen" />
 </template>
   
+<script setup>
+import { ref } from 'vue'
+const isMenuOpen = ref(false)
+let menuFunction = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+</script>
+
+<!-- <script>
+export default {
+  data() {
+    return {
+      isMenuOpen: false,
+    };
+  },
+  methods: {
+    menuFunction() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+  },
+};
+</script> -->
