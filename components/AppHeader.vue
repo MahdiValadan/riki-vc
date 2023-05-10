@@ -27,28 +27,12 @@
     <div class="bg-[#FF8F52] h-6"></div>
   </header>
   <!-- Small Devices: Menu  -->
-  <Menu v-if="isMenuOpen" />
+  <Menu v-if="isMenuOpen" @menu-link-clicked="menuFunction"/>
 </template>
   
 <script setup>
-import { ref } from 'vue'
 const isMenuOpen = ref(false)
 let menuFunction = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 </script>
-
-<!-- <script>
-export default {
-  data() {
-    return {
-      isMenuOpen: false,
-    };
-  },
-  methods: {
-    menuFunction() {
-      this.isMenuOpen = !this.isMenuOpen;
-    },
-  },
-};
-</script> -->
