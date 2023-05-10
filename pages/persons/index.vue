@@ -9,6 +9,12 @@
         <!-- members info -->
         <div id="all_persons_list" class="flex flex-row justify-center flex-wrap gap-6 w-full">
             <person v-for="person in personList" :key="person.id" :personInfo="person"/>
+            <div class="w-72"></div>
+            <div class="w-72"></div>
+            <div class="w-72"></div>
+            <div class="w-72"></div>
+            <div class="w-72"></div>
+            <div class="w-72"></div>
         </div>
     </div>
 </template>

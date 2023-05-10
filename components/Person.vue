@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink id="person" :to="personUrl" class="w-72 bg-white">
+    <NuxtLink id="person" :to="personUrl" class="w-72 bg-white hover:animate-pulse">
         <img id="profile" :src="personInfo.image" alt="">
         <div id="info" class="p-4">
             <h2 class="text-2xl font-bold">{{ personInfo.name }}</h2>
