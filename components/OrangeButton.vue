@@ -1,5 +1,5 @@
 <template>
-    <button class="bg-[#FF8F52] hover:bg-[#FF6D1E] hover:shadow-md text-white font-bold py-5 px-9 rounded" @click="goToLink">
+    <button class="bg-[#FF8F52] hover:bg-[#FF6D1E] hover:shadow-md text-white font-bold py-2 px-3 rounded" @click="goToLink">
         {{ buttonText }}
     </button>
   </template>
