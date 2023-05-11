@@ -10,7 +10,17 @@
         >
         <div class="p-4">
             <h2 class="text-lg font-bold">{{ project.name }}</h2>
-            <h3 class="text-sm font-semibold mt-2">{{ project.area }}</h3>
+            <h3 class="text-sm font-semibold mt-2">
+                <span
+                    v-for="area in project.areas"
+                    :key="area.name"
+                >
+                    {{ area.name }}
+                    <span v-if="project.areas.indexOf(area) !== project.areas.length - 1">
+                        -
+                    </span>
+                </span>
+            </h3>
             <!-- <p class="text-sm my-1">{{ project.info }}</p> -->
         </div>
     </NuxtLink>

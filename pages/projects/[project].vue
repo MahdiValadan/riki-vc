@@ -27,13 +27,29 @@
                     {{ project.name }}
                 </h2>
                 <h2 class="text-black">
-                    <span class="font-bold">Project Area: </span>
-                    {{ project.area }}
+                    <span class="font-bold">Project Areas: </span>
+                    <NuxtLink
+                        v-for="area in project.areas"
+                        :key="area.name"
+                        :to="'/areas/' + area.id"
+                        class="text-orange-400"
+                    >
+                        {{ area.name }}
+                        <span
+                            class="text-black"
+                            v-if="project.areas.indexOf(area) !== project.areas.length - 1"
+                        >
+                            -
+                        </span>
+                    </NuxtLink>
                 </h2>
-                <h2 class="text-black">
-                    <span class="font-bold">Project Manager: </span>
+                <NuxtLink
+                    :to="'/persons/' + project.person.id"
+                    class="text-orange-400"
+                >
+                    <span class="font-bold text-black">Project Manager: </span>
                     {{ project.person.name }}
-                </h2>
+                </NuxtLink>
                 <p class="text-black text-justify">
                     <span class="font-bold">Project Info: </span>
                     {{ project.info }}
@@ -49,9 +65,9 @@ const projectID = route.params.project
 let project = {}
 const supabase = useSupabaseClient()
 let isLoading = true
-let { data, error } = await supabase.from('projects').select('*, person(name)').eq('id', projectID)
+let { data, error } = await supabase.from('projects').select('*, person(id, name), areas(id, name)').eq('id', projectID)
 if (error) {
-    alert('Error: Server Connection')
+    alert('Server Error')
 } else if (data) {
     project = data[0]
 }

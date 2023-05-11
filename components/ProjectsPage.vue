@@ -73,26 +73,38 @@ export default {
     async mounted() {
         const supabase = useSupabaseClient()
         let { data, error } = {}
+
+        // Project By Area
         if (this.area) {
-            ({ data, error } = await supabase.from('projects').select('*').eq('area', this.area))
+            ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
             if (error) {
                 alert('Error: Server Connection')
             } else if (data) {
-                this.projectsList = data
+                let list = data
+                for (let project of list) {
+                    for (let area of project.areas) {
+                        if(area.name === this.area){
+                            this.projectsList.push(project)
+                        }
+                    }
+                }
             }
         }
+        // Other Projects
         else {
             switch (this.title) {
+                // All Projects
                 case 'All Projects':
-                    ({ data, error } = await supabase.from('projects').select('*'))
+                    ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
                     if (error) {
                         alert('Error: Server Connection')
                     } else if (data) {
                         this.projectsList = data
                     }
                     break;
+                // Most Relevant Projects
                 case 'Most Relevant Projects':
-                    ({ data, error } = await supabase.from('projects').select('*').eq('isMR', true))
+                    ({ data, error } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
                     if (error) {
                         alert('Error: Server Connection')
                     } else if (data) {
@@ -100,7 +112,7 @@ export default {
                     }
                     break;
                 default:
-                    ({ data, error } = await supabase.from('projects').select('*'))
+                    ({ data, error } = await supabase.from('projects, areas(name)').select('*'))
                     if (error) {
                         alert('Error: Server Connection')
                     } else if (data) {
