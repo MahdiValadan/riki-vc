@@ -1,6 +1,7 @@
 <template>
     <div class="about-container">
-      <h1 class="about-header">Meet Our Team</h1>
+      <SmallSubtitle text="Our Goals" />
+
       <div class="carousel">
         <div class="carousel-container">
           <div class="carousel-wrapper" ref="carousel">
@@ -40,23 +41,23 @@
       return {
         people: [
           {
-            name: "John Smith",
-            title: "John Smith is an experienced marketing manager with over 10 years of experience in the industry. He has a proven track record of driving successful marketing campaigns that increase brand awareness, generate leads, and boost sales. John is a strategic thinker with a deep understanding of customer behavior and market trends. He is skilled in developing marketing plans, conducting market research, and managing cross-functional teams. In his free time, John enjoys hiking, cooking, and spending time with his family.",
+            name: "Increase Revenue ",
+            title: " Our company aims to expand its market reach by targeting new regions, increasing brand awareness, and exploring partnerships with complementary businesses. We will develop a comprehensive marketing strategy that leverages social media, SEO, and other digital marketing channels to reach a wider audience. We will also conduct market research to understand the unique needs and preferences of customers in different regions and tailor our offerings accordingly.",
             image: "https://via.placeholder.com/150",
           },
           {
-            name: "John Smith",
-            title: "John Smith is an experienced marketing manager with over 10 years of experience in the industry. He has a proven track record of driving successful marketing campaigns that increase brand awareness, generate leads, and boost sales. John is a strategic thinker with a deep understanding of customer behavior and market trends. He is skilled in developing marketing plans, conducting market research, and managing cross-functional teams. In his free time, John enjoys hiking, cooking, and spending time with his family.",
+            name: "Enhance Product Quality",
+            title: " We are committed to enhancing our product quality by investing in research and development, testing, and continuous improvement. We will conduct regular quality audits to identify areas for improvement and implement measures to address any quality issues promptly. Our goal is to exceed customer expectations and establish our brand as a market leader for product excellence.",
             image: "https://via.placeholder.com/150",
           },
           {
-            name: "John Smith",
-            title: "John Smith is an experienced marketing manager with over 10 years of experience in the industry. He has a proven track record of driving successful marketing campaigns that increase brand awareness, generate leads, and boost sales. John is a strategic thinker with a deep understanding of customer behavior and market trends. He is skilled in developing marketing plans, conducting market research, and managing cross-functional teams. In his free time, John enjoys hiking, cooking, and spending time with his family.",
+            name: "Build a Strong Brand Identity",
+            title: "Our company aims to build a strong brand identity by creating a consistent and compelling brand image across all touchpoints. We will invest in branding initiatives that align with our company values, mission, and vision. We will also foster brand loyalty by providing exceptional customer service, engaging with customers on social media, and creating memorable customer experiences.",
             image: "https://via.placeholder.com/150",
           },
           {
-            name: "John Smith",
-            title: "John Smith is an experienced marketing manager with over 10 years of experience in the industry. He has a proven track record of driving successful marketing campaigns that increase brand awareness, generate leads, and boost sales. John is a strategic thinker with a deep understanding of customer behavior and market trends. He is skilled in developing marketing plans, conducting market research, and managing cross-functional teams. In his free time, John enjoys hiking, cooking, and spending time with his family.",
+            name: "Foster a Positive Company Culture",
+            title: "Our company recognizes that our employees are our most valuable asset, and we aim to foster a positive company culture that promotes employee satisfaction, retention, and productivity. We will invest in employee training and development, offer competitive compensation and benefits packages, and create a work environment that fosters collaboration, innovation, and a sense of belonging. We believe that a positive company culture will result in happier, more engaged employees, and ultimately lead to better business outcomes",
             image: "https://via.placeholder.com/150",
           },
         ],
@@ -109,14 +110,7 @@
     justify-content: center;
   }
   
-  .about-header {
-    text-align: center;
-    margin :10px;
-    color: #FF8F52;
-  font-size: 36px;
-  font-weight: bold;
 
-}
 
 .carousel {
 width: 100%;

@@ -2,7 +2,8 @@
     <div class="contact-us-container">
       <div class="contact-details">
         <div class="contact-info">
-          <h1 class="contact-heading">Contact Us</h1>
+          <SmallSubtitle text="Contact Us" />
+
           <div class="address-container">
             <div class="address-icon">
               <i class="material-icons">location</i>
@@ -33,7 +34,7 @@
           </div>
         </div>
         <div class="contact-image">
-          <img src="https://via.placeholder.com/500x500" alt="contact-image">
+          <img src="https://via.placeholder.com/800x500" alt="contact-image">
         </div>
       </div>
       <h1 class="our-map-heading">Our Map Location</h1>
@@ -106,11 +107,7 @@ export default {
   flex-direction: column;
 }
 
-.contact-heading {
-  margin-bottom: 24px;
-  color: #FF8F52;
-  font-size: 36px;
-}
+
 
 .our-map-heading {
   margin-bottom: 24px;
