@@ -1,14 +1,15 @@
 <template>
     <!-- Main container -->
-    <div class="flex flex-col items-center bg-gray-200 pt-5 pl-28 pr-28 pb-14">
+    <div class="flex flex-col items-center bg-gray-200 pt-5 pb-14 px-28">
         <!-- intro title -->
         <div>
             <Subtitle :text="introTitle" />
         </div>
         <!-- intro panel -->
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-1">
-            <p class="font-roboto font-semibold text-black text-5xl leading-59 pt-20 pb-14 px-32">Fueling Innovation:<br/>Where Vision Meets Capital</p>
-            <p class="text-lg leading-8 text-justify text-gray-600 pl-32 pr-32 pb-14">Welcome to our venture
+            <p class="font-roboto font-semibold text-black text-3xl sm:text-4xl leading-59 pt-20
+            pb-14 px-10 sm:px-32">Fueling Innovation:<br/>Where Vision Meets Capital</p>
+            <p class="text-lg leading-8 text-justify text-gray-600 px-10 sm:px-32 pb-14">Welcome to our venture
                 capital website,
                 where we are dedicated to fueling innovation and driving growth. Our
                 mission is to support and invest in the most promising startups and entrepreneurs, helping them achieve
@@ -17,9 +18,9 @@
                 companies. Join us on this exciting journey and be a part of shaping the future of technology and beyond.
             </p>
             <img class="w-full" src="~/assets/images/home/home_intro.jpg" />
-            <div class="w-full flex flex-col justify-start pt-20 px-20 pb-14">
-                <p class="font-extrabold text-4xl leading-14">Our Motivation:</p>
-                <div class="flex flex-row justify-between pt-12 font-bold text-5xl text-[#FF8F52] break-all">
+            <div class="w-full flex flex-col justify-start pt-20 px-10 sm:px-20 pb-14">
+                <p class="font-extrabold text-3xl sm:text-4xl leading-14">Our Motivation:</p>
+                <div class="flex flex-row flex-wrap gap-8 sm:justify-between pt-12 font-bold text-3xl sm:text-4xl text-[#FF8F52] break-all">
                     <p>PROSPERITY</p>
                     <p>ABUNDANCE</p>
                     <p>FORTUNE</p>
@@ -33,9 +34,9 @@
         </div>
         <!-- team panel -->
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center px-10 py-16 shadow-md mx-1 my-1 sm:flex-row gap-10">
-            <img class="w-3/5" src="~/assets/images/home/team.jpg" />
+            <img class="w-full sm:w-3/5" src="~/assets/images/home/team.jpg" />
             <div class="flex flex-col justify-end">
-                <p class="font-normal text-base leading-7 text-justify text-gray-600 pb-14">Our venture capital
+                <p class="font-normal text-lg leading-7 text-justify text-gray-600 pb-14">Our venture capital
                     team
                     comprises seasoned professionals with a wealth of experience in finance, technology, and
                     entrepreneurship.
@@ -54,7 +55,7 @@
                     portfolio companies thrive.
                 </p>
                 <!-- this button goes to All Persons tab -->
-                <div class="flex justify-end">
+                <div class="flex justify-center sm:justify-end">
                     <OrangeButton link="/persons" buttonText="Discover Team" />
                 </div>
             </div>

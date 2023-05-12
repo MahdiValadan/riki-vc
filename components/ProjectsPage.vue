@@ -4,9 +4,19 @@
         <!-- Side Menu -->
         <div
             id="side-menu"
-            class="hidden lg:block w-2/12 bg-white p-6"
+            class="fixed w-screen h-full lg:static lg:w-64 lg:h-auto bg-white p-6 "
+            :style="{
+                display: active ? 'block' : 'none'
+            }"
         >
-            <ul class="flex flex-col gap-4 font-medium">
+            <ul class="flex flex-col gap-4 font-medium text-lg lg:text-base">
+
+                <!-- Small Device close Button -->
+                <CloseBtnAlt
+                    class="self-start mb-4 lg:hidden"
+                    @click="sideMenuFunction"
+                />
+
                 <li class="transition hover:text-[#FF8F52]">
                     <NuxtLink to="/projects">
                         All Projects
@@ -19,7 +29,7 @@
                 </li>
                 <li>
                     Projects By Area
-                    <ul class="flex flex-col gap-2 text-sm font-medium mt-2 ml-6">
+                    <ul class="flex flex-col gap-2 text:base lg:text-sm font-medium mt-2 ml-6">
                         <li class="transition hover:text-[#FF8F52]">
                             <NuxtLink to="/projects/projects-by-area/environment">Environment</NuxtLink>
                         </li>
@@ -38,6 +48,12 @@
             id="projects-container"
             class="flex flex-col items-center w-full lg:w-10/12 p-6"
         >
+            <!-- Small Devices Side Menu Button -->
+            <MenuBtnAlt
+                class="self-start lg:hidden"
+                @click="sideMenuFunction"
+            />
+
             <SmallSubtitle :text="title" />
             <Loading v-if="isLoading" />
             <div class="flex flex-row justify-center flex-wrap gap-8 w-full mt-10">
@@ -59,7 +75,8 @@ export default {
     data() {
         return {
             projectsList: [],
-            isLoading: true
+            isLoading: true,
+            active: false,
         }
     },
     props: {
@@ -70,7 +87,23 @@ export default {
         },
         area: String
     },
+    methods: {
+        sideMenuFunction() {
+            this.active = !this.active
+        },
+        handleResize() {
+            if (window.innerWidth >= 1024) {
+                this.active = true
+            } else {
+                this.active = false
+            }
+        }
+    },
     async mounted() {
+        // check display size
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+
         const supabase = useSupabaseClient()
         let { data, error } = {}
 
@@ -83,7 +116,7 @@ export default {
                 let list = data
                 for (let project of list) {
                     for (let area of project.areas) {
-                        if(area.name === this.area){
+                        if (area.name === this.area) {
                             this.projectsList.push(project)
                         }
                     }

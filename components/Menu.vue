@@ -13,25 +13,6 @@
                 <NuxtLink to="/projects">All Projects</NuxtLink>
             </li>
             <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                <NuxtLink to="/projects/most-relevant-projects">
-                    Most Relevant Projects
-                </NuxtLink>
-            </li>
-            <li>
-                <h2 class="underline">Projects By Area</h2>
-                <ul class="flex flex-col gap-2 text-base font-medium mt-3">
-                    <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                        <NuxtLink to="/projects/projects-by-area/environment">Environment</NuxtLink>
-                    </li>
-                    <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                        <NuxtLink to="/projects/projects-by-area/health">Health</NuxtLink>
-                    </li>
-                    <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                        <NuxtLink to="/projects/projects-by-area/tech">Tech</NuxtLink>
-                    </li>
-                </ul>
-            </li>
-            <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
                 <NuxtLink to="/areas">All Areas</NuxtLink>
             </li>
             <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
