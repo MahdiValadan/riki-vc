@@ -2,7 +2,8 @@
     <div class="contact-us-container">
       <div class="contact-details">
         <div class="contact-info">
-          <h1 class="contact-heading">Contact Us</h1>
+          <SmallSubtitle text="Contact Us" />
+
           <div class="address-container">
             <div class="address-icon">
               <i class="material-icons">location</i>
@@ -33,17 +34,18 @@
           </div>
         </div>
         <div class="contact-image">
-          <img src="https://via.placeholder.com/500x500" alt="contact-image">
+          <img src="https://via.placeholder.com/800x500" alt="contact-image">
         </div>
       </div>
-      <h1 class="our-map-heading">Our Map Location</h1>
+      <SmallSubtitle text="Our Map Location" />
 
       <div class="map-container">
      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.0448120407857!2d9.226574815567695!3d45.47891207910196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4346202a9f7e4a4!2sPolitecnico%20di%20Milano%20-%20Campus%20di%20Leonardo!5e0!3m2!1sen!2sus!4v1652118318228!5m2!1sen!2sus&amp;markers=color:red%7C45.47891207910196,9.226574815567695" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
       </div>
       <div class="form-container">
-        <h2 class="form-heading">Send Us a Message</h2>
+        
+        <SmallSubtitle text="Send us a Message" />
         <form class="contact-us-form" @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="name">Name</label>
@@ -106,16 +108,12 @@ export default {
   flex-direction: column;
 }
 
-.contact-heading {
-  margin-bottom: 24px;
-  color: #FF8F52;
-  font-size: 36px;
-}
+
 
 .our-map-heading {
-  margin-bottom: 24px;
+  /* margin-bottom: 24px;
   color: #FF8F52;
-  font-size: 36px;
+  font-size: 36px; */
 }
 
 
@@ -147,7 +145,8 @@ export default {
   margin-right: 8px;
   color: #FF8F52;
   font-weight: bold;
-  font-family: 'Material Icons', sans-serif;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .address-icon i,
@@ -190,9 +189,9 @@ export default {
 }
 
 .form-heading {
-  margin-bottom: 24px;
+  /* margin-bottom: 24px;
   color: #FF8F52;
-  font-size: 24px;
+  font-size: 24px; */
 }
 
 .contact-us-form {
