@@ -3,6 +3,7 @@
     <nav class="w-full px-10 py-4 flex flex-row justify-between items-center bg-white">
       <!-- Logo -->
       <NuxtLink
+        id="logo"
         to="/"
         class="font-bold text-2xl sm:text-3xl"
       >
