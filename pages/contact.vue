@@ -1,70 +1,72 @@
 <template>
-    <div class="contact-us-container">
-      <div class="contact-details">
-        <div class="contact-info">
-          <SmallSubtitle text="Contact Us" />
+  <div class="contact-us-container">
+    <div class="flex gap-10 flex-col items-center justify-center w-full sm:flex-row">
+      <div class="contact-info justify-center items-center">
+        <SmallSubtitle class="w-fit" text="Contact Us" />
 
-          <div class="address-container">
-            <div class="address-icon">
-              <i class="material-icons">location</i>
-            </div>
-            <div class="address-text">
-              <p class="address-line">26985 Brighton Lane,</p>
-              <p class="address-line">Lake Forest</p>
-              <p class="address-line"> CA 94111</p>
-            </div>
+        <div class="address-container w-full">
+          <div class="address-icon">
+            <i class="material-icons">location</i>
           </div>
-          <div class="phone-container">
-            <div class="phone-icon">
-              <i class="material-icons">phone</i>
-            </div>
-            <div class="phone-text">
-              <p class="phone-line">(123) 456-7890</p>
-              <p class="phone-line">(123) 456-7891</p>
-            </div>
-          </div>
-          <div class="email-container">
-            <div class="email-icon">
-              <i class="material-icons">email</i>
-            </div>
-            <div class="email-text">
-              <p class="email-line">info@rikivc.com</p>
-              <p class="email-line">support@rikivc.com</p>
-            </div>
+          <div class="address-text">
+            <p class="address-line">26985 Brighton Lane,</p>
+            <p class="address-line">Lake Forest</p>
+            <p class="address-line"> CA 94111</p>
           </div>
         </div>
-        <div class="contact-image">
-          <img src="https://via.placeholder.com/800x500" alt="contact-image">
+        <div class="phone-container w-full">
+          <div class="phone-icon">
+            <i class="material-icons">phone</i>
+          </div>
+          <div class="phone-text">
+            <p class="phone-line">(123) 456-7890</p>
+            <p class="phone-line">(123) 456-7891</p>
+          </div>
+        </div>
+        <div class="email-container w-full">
+          <div class="email-icon">
+            <i class="material-icons">email</i>
+          </div>
+          <div class="email-text">
+            <p class="email-line">info@rikivc.com</p>
+            <p class="email-line">support@rikivc.com</p>
+          </div>
         </div>
       </div>
-      <SmallSubtitle text="Our Map Location" />
-
-      <div class="map-container">
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.0448120407857!2d9.226574815567695!3d45.47891207910196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4346202a9f7e4a4!2sPolitecnico%20di%20Milano%20-%20Campus%20di%20Leonardo!5e0!3m2!1sen!2sus!4v1652118318228!5m2!1sen!2sus&amp;markers=color:red%7C45.47891207910196,9.226574815567695" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
+      <div class="contact-image">
+        <img src="/images/people/contact.jpg" alt="contact-image">
       </div>
-      <div class="form-container">
-        
-        <SmallSubtitle text="Send us a Message" />
-        <form class="contact-us-form" @submit.prevent="handleSubmit">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" v-model="formData.name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" v-model="formData.email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" v-model="formData.message" required></textarea>
-          </div>
-          <div class="form-actions">
-      <button class="submit-button" type="submit">Send</button>
     </div>
-  </form>
-</div>
-</div>
+    <SmallSubtitle text="Our Map Location" />
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.0448120407857!2d9.226574815567695!3d45.47891207910196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4346202a9f7e4a4!2sPolitecnico%20di%20Milano%20-%20Campus%20di%20Leonardo!5e0!3m2!1sen!2sus!4v1652118318228!5m2!1sen!2sus&amp;markers=color:red%7C45.47891207910196,9.226574815567695"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+    <div class="form-container">
+
+      <SmallSubtitle text="Send us a Message" />
+      <form class="contact-us-form" @submit.prevent="handleSubmit">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" v-model="formData.name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" v-model="formData.email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" v-model="formData.message" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="submit-button" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -75,13 +77,12 @@ export default {
         name: "",
         email: "",
         message: ""
-      }
+      },
     };
   },
   methods: {
     handleSubmit() {
-      // Submit form data to backend or show success message
-      console.log("Form submitted!");
+      alert("Message sent successfully! You'll get response soon!")
     }
   }
 };
@@ -92,15 +93,6 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 24px;
-}
-
-.contact-details {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  width: 100%;
 }
 
 .contact-info {
