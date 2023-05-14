@@ -4,52 +4,35 @@
         <div class="flex flex-row flex-wrap bg-white w-9/12 min-h-[500px] rounded-md shadow-md">
             <!-- Left Side -->
             <div class="w-full md:w-6/12 py-8 px-12">
-                <Loading
-                    v-if="isLoading"
-                    class="self-center"
-                />
+                <Loading v-if="isLoading" class="self-center" />
 
-                <img
-                    class="border-4 border-[#FF8F52] rounded"
-                    :src="'/images/projects/' + project.image + '.jpg'"
-                    alt="project image"
-                >
+                <img class="border-4 border-[#FF8F52] rounded" :src="'/images/projects/' + project.image + '.jpg'"
+                    alt="project image">
             </div>
             <!-- Right Side -->
             <div class="flex flex-col gap-4 w-full md:w-6/12 p-8">
-                <Loading
-                    v-if="isLoading"
-                    class="self-center"
-                />
+                <Loading v-if="isLoading" class="self-center" />
 
                 <h2 class="text-black">
                     <span class="font-bold">Project Name: </span>
                     {{ project.name }}
                 </h2>
-                <h2 class="text-black">
+                <h2 class="text-black font-bold">
                     <span class="font-bold">Project Areas: </span>
-                    <NuxtLink
-                        v-for="area in project.areas"
-                        :key="area.name"
-                        :to="'/areas/' + area.id"
-                        class="text-orange-400"
-                    >
+                    <NuxtLink v-for="area in project.areas" :key="area.name" :to="'/areas/' + area.id"
+                        class="text-orange-400">
                         {{ area.name }}
-                        <span
-                            class="text-black"
-                            v-if="project.areas.indexOf(area) !== project.areas.length - 1"
-                        >
-                            -
+                        <span class="text-black" v-if="project.areas.indexOf(area) !== project.areas.length - 1">
+                            &
                         </span>
                     </NuxtLink>
                 </h2>
-                <NuxtLink
-                    :to="'/persons/' + project.person.id"
-                    class="text-orange-400"
-                >
+                <h2 class="text-black font-bold">
                     <span class="font-bold text-black">Project Manager: </span>
-                    {{ project.person.name }}
-                </NuxtLink>
+                    <NuxtLink :to="'/persons/' + project.person.id" class="text-orange-400">
+                        {{ project.person.name }}
+                    </NuxtLink>
+                </h2>
                 <p class="text-black text-justify">
                     <span class="font-bold">Project Info: </span>
                     {{ project.info }}
