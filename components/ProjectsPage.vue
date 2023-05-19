@@ -54,9 +54,9 @@
                 @click="sideMenuFunction"
             />
 
-            <SmallSubtitle :text="title" />
+            <Subtitle :text="title" />
             <Loading v-if="isLoading" />
-            <div class="flex flex-row justify-center flex-wrap gap-8 w-full mt-10">
+            <div class="flex flex-row justify-center flex-wrap gap-8 w-full mt-7">
                 <Project
                     v-for="project in projectsList"
                     :key="project.id"

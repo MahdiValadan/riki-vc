@@ -1,8 +1,8 @@
 <template>
   <div class="contact-us-container">
-    <div class="flex gap-10 flex-col items-center justify-center w-full sm:flex-row">
+    <div class="flex gap-10 flex-col items-center justify-center w-full sm:flex-row mt-5 mb-7">
       <div class="contact-info justify-center items-center">
-        <SmallSubtitle class="w-fit" text="Contact Us" />
+        <Subtitle class="w-fit mt-1 mb-8" text="Contact Us" />
 
         <div class="address-container w-full">
           <div class="address-icon">
@@ -37,9 +37,9 @@
         <img src="/images/people/contact.jpg" alt="contact-image">
       </div>
     </div>
-    <SmallSubtitle text="Our Map Location" />
 
-    <div class="map-container">
+    <Subtitle text="Our Map Location" />
+    <div class="map-container my-5">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.0448120407857!2d9.226574815567695!3d45.47891207910196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4346202a9f7e4a4!2sPolitecnico%20di%20Milano%20-%20Campus%20di%20Leonardo!5e0!3m2!1sen!2sus!4v1652118318228!5m2!1sen!2sus&amp;markers=color:red%7C45.47891207910196,9.226574815567695"
         width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -47,7 +47,7 @@
     </div>
     <div class="form-container">
 
-      <SmallSubtitle text="Send us a Message" />
+      <Subtitle text="Send us a Message" />
       <form class="contact-us-form" @submit.prevent="handleSubmit">
         <div class="form-group">
           <label for="name">Name</label>

@@ -6,7 +6,7 @@
             <Subtitle :text="introTitle" />
         </div>
         <!-- intro panel -->
-        <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-1">
+        <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-5">
             <p class="font-roboto font-semibold text-black text-3xl sm:text-4xl leading-59 pt-20
             pb-14 px-10 sm:px-32">Fueling Innovation:<br/>Where Vision Meets Capital</p>
             <p class="text-lg leading-8 text-justify text-gray-600 px-10 sm:px-32 pb-14">Welcome to our venture
@@ -29,11 +29,11 @@
         </div>
 
         <!-- team title -->
-        <div class="mt-20">
+        <div class="mt-7">
             <Subtitle :text="teamTitle" />
         </div>
         <!-- team panel -->
-        <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center px-10 py-16 shadow-md mx-1 my-1 sm:flex-row gap-10">
+        <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center px-10 py-16 shadow-md mx-1 my-5 sm:flex-row gap-10">
             <img class="w-full sm:w-3/5" src="~/assets/images/home/team.jpg" />
             <div class="flex flex-col justify-end">
                 <p class="font-normal text-lg leading-7 text-justify text-gray-600 pb-14">Our venture capital
