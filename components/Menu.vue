@@ -7,13 +7,13 @@
             class="flex flex-col items-center gap-6 font-semibold text-lg text-center"
         >
             <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                <NuxtLink to="/persons">All Persons</NuxtLink>
+                <NuxtLink to="/persons">Persons</NuxtLink>
             </li>
             <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                <NuxtLink to="/projects">All Projects</NuxtLink>
+                <NuxtLink to="/projects">Projects</NuxtLink>
             </li>
             <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
-                <NuxtLink to="/areas">All Areas</NuxtLink>
+                <NuxtLink to="/areas">Areas</NuxtLink>
             </li>
             <li class="transition hover:text-[#FF8F52]" @click="closeMenu">
                 <NuxtLink to="/about">About Us</NuxtLink>
