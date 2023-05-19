@@ -1,6 +1,6 @@
 <template>
     <div class="about-container">
-      <SmallSubtitle text="Our Goals" />
+      <Subtitle text="Our Goals" />
 
       <div class="carousel">
         <div class="carousel-container">
