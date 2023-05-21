@@ -134,11 +134,7 @@ function handleSubmit() {
 
 
 
-.our-map-heading {
-  /* margin-bottom: 24px;
-  color: #FF8F52;
-  font-size: 36px; */
-}
+
 
 
 .address-container,
@@ -210,12 +206,6 @@ function handleSubmit() {
   background-color: #F5F5F5;
   padding: 24px;
   border-radius: 8px;
-}
-
-.form-heading {
-  /* margin-bottom: 24px;
-  color: #FF8F52;
-  font-size: 24px; */
 }
 
 .contact-us-form {
