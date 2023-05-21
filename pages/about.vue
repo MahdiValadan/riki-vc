@@ -163,6 +163,7 @@ onBeforeUnmount(() => {
 .person-card {
   width: 100%;
   background-color: #0e7490;
+  color: white;
   padding: 2rem;
   display: flex;
   flex-direction: column;
