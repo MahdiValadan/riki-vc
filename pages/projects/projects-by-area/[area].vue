@@ -9,7 +9,7 @@
 
 useSeoMeta({
   title: 'RIKI VC | Projects by Area',
-  description: 'Projects by Area page of RIKI Venture Capital which gives information about specific area project ',
+  description: 'Projects by Area page of RIKI Venture Capital which gives information about specific area projects',
   lang: "en"
 })
 // get area from 

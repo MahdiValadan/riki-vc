@@ -45,8 +45,8 @@
 <script setup>
 
 useSeoMeta({
-  title: 'RIKI VC | Projects',
-  description: 'Projects page of RIKI Venture Capital which gives general information about all projects of the website',
+  title: 'RIKI VC | Project',
+  description: 'Project page of RIKI Venture Capital which gives general information about specific project of the website',
   lang: "en"
 })
 

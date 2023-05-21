@@ -29,8 +29,8 @@
 
 <script setup>
 useSeoMeta({
-  title: 'RIKI VC | Area',
-  description: ' Area page of RIKI Venture Capital which gives information about all areas'
+  title: 'RIKI VC | Areas',
+  description: ' Areas page of RIKI Venture Capital which gives information about all areas'
 })
 const supabase = useSupabaseClient()
 let areasList = []
