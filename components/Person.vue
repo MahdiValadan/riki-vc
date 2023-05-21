@@ -27,10 +27,3 @@ export default {
     }
 }
 </script>
-
-<script setup>
-useSeoMeta({
-  title: 'RIKI VC | Persons',
-  description: ' Area page of RIKI Venture Capital which gives information about all persons',
-  lang: "en"
-})</script>
