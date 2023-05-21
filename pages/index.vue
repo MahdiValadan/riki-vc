@@ -25,7 +25,7 @@
             <div class="w-full flex flex-col justify-start pt-20 px-10 sm:px-20 pb-14">
                 <p class="font-extrabold text-3xl sm:text-4xl leading-14">Our Motivation:</p>
                 <div
-                    class="flex flex-row flex-wrap gap-8 sm:justify-between pt-12 font-bold text-3xl sm:text-4xl text-[#FF8F52] break-all">
+                    class="flex flex-row flex-wrap gap-8 sm:justify-between pt-12 font-bold text-3xl sm:text-4xl text-[##f97316] break-all">
                     <p lang=en>PROSPERITY</p>
                     <p lang=en>ABUNDANCE</p>
                     <p lang=en>FORTUNE</p>

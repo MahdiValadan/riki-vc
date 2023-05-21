@@ -17,12 +17,12 @@
                     @click="sideMenuFunction"
                 />
 
-                <li class="transition hover:text-[#FF8F52]">
+                <li class="transition hover:text-[##f97316]">
                     <NuxtLink to="/projects">
                         All Projects
                     </NuxtLink>
                 </li>
-                <li class="transition hover:text-[#FF8F52]">
+                <li class="transition hover:text-[##f97316]">
                     <NuxtLink to="/projects/most-relevant-projects">
                         Most Relevant Projects
                     </NuxtLink>
@@ -31,7 +31,7 @@
                     Projects By Area
                     <ul class="flex flex-col gap-2 text:base font-medium mt-2 ml-6">
                         <li
-                            class="transition hover:text-[#FF8F52]"
+                            class="transition hover:text-[##f97316]"
                             v-for="area in areas"
                             :key="area.name"
                         >

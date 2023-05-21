@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="bg-[#FF8F52] hover:bg-[#FF6D1E] transition-all	hover:shadow-md text-white font-bold py-2 px-3 rounded"
+    class="bg-[##f97316] hover:bg-[#FF6D1E] transition-all	hover:shadow-md text-white font-bold py-2 px-3 rounded"
     :to="link"
   >
     {{ buttonText }}

@@ -2,7 +2,7 @@
     <NuxtLink
         :to="url"
         :id="'project_' + project.name"
-        class="bg-[#FF8F52] text-white w-60 h-64 shadow-lg hover:animate-pulse"
+        class="bg-[##f97316] text-white w-60 h-64 shadow-lg hover:animate-pulse"
     >
         <img
             :src="'/images/projects/' + project.image + '.jpg'"

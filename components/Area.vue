@@ -2,7 +2,7 @@
     <NuxtLink
         :to="url"
         :id="'area_' + area.name"
-        class="bg-[#FF8F52] text-white w-80 h-80 hover:animate-pulse shadow-lg"
+        class="bg-[##f97316] text-white w-80 h-80 hover:animate-pulse shadow-lg"
     >
         <img
             :src="'/images/areas/' + area.image"

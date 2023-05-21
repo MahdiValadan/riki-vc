@@ -3,7 +3,7 @@
         <div class="flex flex-row flex-wrap gap-20 text-[#D9D9D9]">
             <div class="w-full md:w-6/12">
                 <div class="font-bold text-xl text-white">
-                    <span class="text-[#FF8F52]">RIKI</span> VC
+                    <span class="text-[##f97316]">RIKI</span> VC
                 </div>
                 <p class="text-justify my-6">
                     As a registered and licensed venture capital firm, we are fully compliant with all applicable
