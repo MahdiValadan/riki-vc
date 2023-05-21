@@ -1,5 +1,5 @@
 <template>
-    <ul class="hidden lg:flex flex-row items-center gap-7 font-medium text-lg">
+    <ul class="hidden lg:flex flex-row items-center gap-7 font-semibold text-lg">
         <li class="transition hover:text-[#FF8F52]">
             <NuxtLink to="/persons">Persons</NuxtLink>
         </li>

@@ -1,5 +1,5 @@
 <template>
-  <header class="flex flex-col sticky top-0 z-50 font-roboto">
+  <header class="flex flex-col sticky top-0 z-50">
     <nav class="w-full px-10 py-4 flex flex-row justify-between items-center bg-white">
       <!-- Logo -->
       <NuxtLink

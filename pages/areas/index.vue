@@ -1,13 +1,23 @@
 <template>
     <!-- Main Container -->
-    <div id="all_areas_container" class="flex flex-col justify-center items-center pt-5 pl-28 pr-28 pb-14">
+    <div
+        id="all_areas_container"
+        class="flex flex-col justify-center items-center pt-5 pl-28 pr-28 pb-14"
+    >
         <div class="flex flex-col items-center min-h-screen">
             <Subtitle text="All Areas" />
             <Loading v-if="isLoading"></Loading>
             <!-- area container -->
-            <div id="areas-container" class="w-10/12 flex flex-row items-center p-6">
+            <div
+                id="areas-container"
+                class="w-11/12 flex flex-row items-center p-6"
+            >
                 <div class="flex flex-row justify-center flex-wrap gap-6 w-full">
-                    <Area v-for="area in areasList" :key="area.id" :area="area" />
+                    <Area
+                        v-for="area in areasList"
+                        :key="area.id"
+                        :area="area"
+                    />
                     <div class="w-80"></div>
                     <div class="w-80"></div>
                     <div class="w-80"></div>
@@ -20,12 +30,16 @@
 <script setup>
 const supabase = useSupabaseClient()
 let areasList = []
-let isLoading = true
-let { data, error } = await supabase.from('areas').select('*')
-isLoading = false
-if (error) {
-    alert('Error: Server Connection')
-} else if (data) {
-    areasList = data
-}
+let isLoading = ref(true)
+
+onMounted(async () => {
+    let { data, error } = await supabase.from('areas').select('*')
+    isLoading.value = false
+    if (error) {
+        alert('Error: Server Connection')
+    } else if (data) {
+        areasList = data
+    }
+})
+
 </script>

@@ -7,7 +7,7 @@
         </div>
         <!-- intro panel -->
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-5">
-            <p class="font-roboto font-semibold text-black text-3xl sm:text-4xl leading-59 pt-20
+            <p class="font-semibold text-black text-3xl sm:text-4xl leading-59 pt-20
             pb-14 px-10 sm:px-32">Fueling Innovation:<br/>Where Vision Meets Capital</p>
             <p class="text-lg leading-8 text-justify text-gray-600 px-10 sm:px-32 pb-14">Welcome to our venture
                 capital website,

@@ -9,7 +9,7 @@
                 display: active ? 'block' : 'none'
             }"
         >
-            <ul class="flex flex-col gap-4 font-medium text-lg lg:text-base">
+            <ul class="flex flex-col gap-4 font-medium text-lg">
 
                 <!-- Small Device close Button -->
                 <CloseBtnAlt
@@ -29,15 +29,15 @@
                 </li>
                 <li>
                     Projects By Area
-                    <ul class="flex flex-col gap-2 text:base lg:text-sm font-medium mt-2 ml-6">
-                        <li class="transition hover:text-[#FF8F52]">
-                            <NuxtLink to="/projects/projects-by-area/environment">Environment</NuxtLink>
-                        </li>
-                        <li class="transition hover:text-[#FF8F52]">
-                            <NuxtLink to="/projects/projects-by-area/health">Health</NuxtLink>
-                        </li>
-                        <li class="transition hover:text-[#FF8F52]">
-                            <NuxtLink to="/projects/projects-by-area/tech">Tech</NuxtLink>
+                    <ul class="flex flex-col gap-2 text:base font-medium mt-2 ml-6">
+                        <li
+                            class="transition hover:text-[#FF8F52]"
+                            v-for="area in areas"
+                            :key="area.name"
+                        >
+                            <NuxtLink :to="'/projects/projects-by-area/' + area.name.toLowerCase()">
+                                {{ area.name }}
+                            </NuxtLink>
                         </li>
                     </ul>
                 </li>
@@ -70,91 +70,100 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            projectsList: [],
-            isLoading: true,
-            active: false,
-        }
-    },
-    props: {
-        title: {
-            type: String,
-            required: true,
-            default: 'All Projects'
-        },
-        area: String
-    },
-    methods: {
-        sideMenuFunction() {
-            this.active = !this.active
-        },
-        handleResize() {
-            if (window.innerWidth >= 1024) {
-                this.active = true
-            } else {
-                this.active = false
-            }
-        }
-    },
-    async mounted() {
-        // check display size
-        window.addEventListener('resize', this.handleResize);
-        this.handleResize();
+<script setup>
+let projectsList = []
+let areas = []
+let isLoading = ref(true)
+let active = ref(false)
 
-        const supabase = useSupabaseClient()
-        let { data, error } = {}
+let props = defineProps({
+    title: {
+        type: String,
+        required: true,
+        default: 'All Projects'
+    },
+    area: String
+})
 
-        // Project By Area
-        if (this.area) {
-            ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
-            if (error) {
-                alert('Error: Server Connection')
-            } else if (data) {
-                let list = data
-                for (let project of list) {
-                    for (let area of project.areas) {
-                        if (area.name === this.area) {
-                            this.projectsList.push(project)
-                        }
+function sideMenuFunction() {
+    active.value = !active.value
+}
+
+function handleResize() {
+    if (window.innerWidth >= 1024) {
+        active.value = true
+    } else {
+        active.value = false
+    }
+}
+
+onMounted(async () => {
+
+    // check display size
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    // getting areas from database
+    const supabase = useSupabaseClient()
+    let { data: fetchedAreas, error: areasError } = await supabase.from('areas').select('name').order('name', { ascending: true })
+    areas = fetchedAreas
+
+    if (areasError) {
+        alert('Error: Server Connection')
+    }
+
+    // define variables for getting projects from database
+    let { data, error } = {}
+
+    // Project By Area
+    if (props.area) {
+        ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
+        if (error) {
+            alert('Error: Server Connection')
+        } else if (data) {
+            let list = data
+            for (let project of list) {
+                for (let areaOfProject of project.areas) {
+                    if (areaOfProject.name === props.area) {
+                        projectsList.push(project)
                     }
                 }
             }
         }
-        // Other Projects
-        else {
-            switch (this.title) {
-                // All Projects
-                case 'All Projects':
-                    ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
-                    if (error) {
-                        alert('Error: Server Connection')
-                    } else if (data) {
-                        this.projectsList = data
-                    }
-                    break;
-                // Most Relevant Projects
-                case 'Most Relevant Projects':
-                    ({ data, error } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
-                    if (error) {
-                        alert('Error: Server Connection')
-                    } else if (data) {
-                        this.projectsList = data
-                    }
-                    break;
-                default:
-                    ({ data, error } = await supabase.from('projects, areas(name)').select('*'))
-                    if (error) {
-                        alert('Error: Server Connection')
-                    } else if (data) {
-                        this.projectsList = data
-                    }
-                    break;
-            }
-        }
-        this.isLoading = false
     }
-}
+
+    // Other Projects
+    else {
+        switch (props.title) {
+            // All Projects
+            case 'All Projects':
+                ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
+                if (error) {
+                    alert('Error: Server Connection')
+                } else if (data) {
+                    projectsList = data
+                }
+                break;
+            // Most Relevant Projects
+            case 'Most Relevant Projects':
+                ({ data, error } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
+                if (error) {
+                    alert('Error: Server Connection')
+                } else if (data) {
+                    projectsList = data
+                }
+                break;
+            default:
+                ({ data, error } = await supabase.from('projects, areas(name)').select('*'))
+                if (error) {
+                    alert('Error: Server Connection')
+                } else if (data) {
+                    projectsList = data
+                }
+                break;
+        }
+    }
+    isLoading.value = false
+})
+
 </script>
