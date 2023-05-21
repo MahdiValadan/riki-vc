@@ -26,12 +26,3 @@
         </div>
     </footer>
 </template>
-
-<script setup>
-useSeoMeta({
-    title: 'RIKI VC | App Footer',
-    description: 'App Footer of RIKI Venture Capital ',
-    lang: "en"
-  })
-</script>
-

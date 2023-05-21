@@ -27,11 +27,6 @@
 </template>
 
 <script setup>
-useSeoMeta({
-  title: 'RIKI VC | Project',
-  description: 'Project link of RIKI Venture Capital which gives information about specific project ',
-  lang: "en"
-})
 const props = defineProps({
     project: {
         type: Object,

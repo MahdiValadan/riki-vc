@@ -32,11 +32,6 @@
 </template>
   
 <script setup>
-useSeoMeta({
-  title: 'RIKI VC | App Header',
-  description: 'App Header of RIKI Venture Capital ',
-  lang: "en"
-})
 const isMenuOpen = ref(false)
 let menuFunction = () => {
   isMenuOpen.value = !isMenuOpen.value
