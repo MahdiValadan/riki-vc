@@ -180,14 +180,14 @@ async function handleSubmit() {
   height: 132px;
   width: 132px;
   border-radius: 50%;
-  background-color: ##f97316;
+  background-color: #f97316;
 }
 
 .material-icons {
   font-size: 22px;
   vertical-align: middle;
   margin-right: 8px;
-  color: ##f97316;
+  color: #f97316;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
 
@@ -270,7 +270,7 @@ textarea {
 
 .submit-button {
   padding: 12px 24px;
-  background-color: ##f97316;
+  background-color: #f97316;
   color: #FFFFFF;
   border: none;
   border-radius: 4px;
