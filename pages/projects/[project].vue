@@ -6,7 +6,7 @@
             <div class="w-full md:w-6/12 py-8 px-12">
                 <Loading v-if="isLoading" class="self-center" />
 
-                <img class="border-4 border-[#f97316] rounded" :src="'/images/projects/' + project.image + '.jpg'"
+                <img class="border-4 border-[#0e7490] rounded" :src="'/images/projects/' + project.image + '.jpg'"
                     alt="project image">
             </div>
             <!-- Right Side -->

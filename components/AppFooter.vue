@@ -3,7 +3,7 @@
         <div class="flex flex-row flex-wrap gap-20 text-[#D9D9D9]">
             <div class="w-full md:w-6/12">
                 <div class="font-bold text-xl text-white">
-                    <span class="text-[#f97316]">RIKI</span> VC
+                    <span class="text-[#06b6d4]">RIKI</span> VC
                 </div>
                 <p class="text-justify my-6">
                     As a registered and licensed venture capital firm, we are fully compliant with all applicable
@@ -16,8 +16,8 @@
             </div>
            
             <div>
-                <h2 class="font-bold">Contact</h2>
-                <ul>
+                <h2 class="font-bold mt-12">Contact</h2>
+                <ul class="flex flex-col gap-4 mt-6">
                     <li>26985 Brighton Lane, Lake Forest, CA</li>
                     <li>support@rikivc.com</li>
                     <li>+1 236 5489</li>

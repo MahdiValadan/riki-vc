@@ -162,7 +162,7 @@ onBeforeUnmount(() => {
 
 .person-card {
   width: 100%;
-  background-color: #f97316;
+  background-color: #0e7490;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -199,7 +199,7 @@ onBeforeUnmount(() => {
 
 .carousel-control {
   font-size: 2rem;
-  color: #f97316;
+  color: #0e7490;
   /* background-color: white; */
   border: none;
   cursor: pointer;
@@ -224,6 +224,6 @@ onBeforeUnmount(() => {
 }
 
 .carousel-dot.active {
-  background-color: #f97316;
+  background-color: #0e7490;
 }
 </style>

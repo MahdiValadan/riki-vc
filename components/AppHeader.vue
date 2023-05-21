@@ -7,7 +7,7 @@
         to="/"
         class="font-bold text-2xl sm:text-3xl"
       >
-        <span class="text-[#f97316]">RIKI</span> VC
+        <span class="text-[#0e7490]">RIKI</span> VC
       </NuxtLink>
       <!-- Links -->
       <!-- Desktop: Nav Links -->
@@ -25,7 +25,7 @@
       />
     </nav>
     <!-- Breadcrumb -->
-    <div class="bg-[#f97316] h-6"></div>
+    <div class="bg-[#0e7490] h-6"></div>
   </header>
   <!-- Small Devices: Menu  -->
   <Menu v-if="isMenuOpen" @menu-link-clicked="menuFunction"/>

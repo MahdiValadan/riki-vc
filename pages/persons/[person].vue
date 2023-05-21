@@ -22,7 +22,7 @@
                 </h2>
                 <h2
                     id="role"
-                    class="text-[#f97316]"
+                    class="text-[#0e7490]"
                 >
                     {{ person.role }}
                 </h2>
