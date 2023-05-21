@@ -18,6 +18,10 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'RIKI VC | Area',
+  description: 'Area page of RIKI Venture Capital which gives information about specific area '
+})
 const route = useRoute()
 const areaID = route.params.area
 const supabase = useSupabaseClient()

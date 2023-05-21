@@ -28,6 +28,10 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'RIKI VC | Area',
+  description: ' Area page of RIKI Venture Capital which gives information about all areas'
+})
 const supabase = useSupabaseClient()
 let areasList = []
 let isLoading = ref(true)

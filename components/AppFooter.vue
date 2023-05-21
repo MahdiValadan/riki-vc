@@ -14,15 +14,24 @@
                     maximizing returns.
                 </p>
             </div>
+           
             <div>
                 <h2 class="font-bold">Contact</h2>
-                <br/>
                 <ul>
-                    <li>26985 Brighton Lane, Lake Forest, CA</li><br/>
-                    <li>support@rikivc.com</li><br/>
-                    <li>+1 236 5489</li><br/>
+                    <li>26985 Brighton Lane, Lake Forest, CA</li>
+                    <li>support@rikivc.com</li>
+                    <li>+1 236 5489</li>
                 </ul>
             </div>
         </div>
     </footer>
 </template>
+
+<script setup>
+useSeoMeta({
+    title: 'RIKI VC | App Footer',
+    description: 'App Footer of RIKI Venture Capital ',
+    lang: "en"
+  })
+</script>
+

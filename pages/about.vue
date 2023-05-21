@@ -60,7 +60,8 @@
 
 useSeoMeta({
   title: 'RIKI VC | About Us',
-  description: 'About Us page of RIKI Venture Capital which gives general information about the owners of the website'
+  description: 'About Us page of RIKI Venture Capital which gives general information about the owners of the website',
+  lang: "en"
 })
 
 let people = [

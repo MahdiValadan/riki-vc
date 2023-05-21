@@ -57,6 +57,10 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'RIKI VC | Success',
+  description: 'Success components'
+})
 
 let close = ref(false)
 let props = defineProps({

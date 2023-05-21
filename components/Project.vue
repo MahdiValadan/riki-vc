@@ -1,7 +1,7 @@
 <template>
     <NuxtLink
         :to="url"
-        id="project"
+        :id="'project_' + project.name"
         class="bg-[#FF8F52] text-white w-60 h-64 shadow-lg hover:animate-pulse"
     >
         <img
@@ -27,6 +27,11 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'RIKI VC | Project',
+  description: 'Project link of RIKI Venture Capital which gives information about specific project ',
+  lang: "en"
+})
 const props = defineProps({
     project: {
         type: Object,
