@@ -6,6 +6,12 @@
 </template>
 
 <script setup>
+
+useSeoMeta({
+  title: 'RIKI VC | Projects by Area',
+  description: 'Projects by Area page of RIKI Venture Capital which gives information about specific area project ',
+  lang: "en"
+})
 // get area from 
 const route = useRoute()
 let area = route.params.area

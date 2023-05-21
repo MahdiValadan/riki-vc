@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col min-h-screen items-center py-20">
+    <div lang="en" class="flex flex-col min-h-screen items-center py-20">
         <!-- Box -->
         <div class="flex flex-row flex-wrap bg-white w-9/12 min-h-[500px] rounded-md shadow-md">
             <!-- Left Side -->
@@ -57,6 +57,11 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'RIKI VC | Persons',
+  description: ' Area page of RIKI Venture Capital which gives information about all Members',
+  lang: "en"
+})
 const route = useRoute()
 const personId = route.params.person
 let person = {}

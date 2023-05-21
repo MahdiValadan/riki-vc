@@ -112,7 +112,8 @@
 
 useSeoMeta({
   title: 'RIKI VC | Contact Us',
-  description: 'Contact Us page of RIKI Venture Capital'
+  description: 'Contact Us page of RIKI Venture Capital',
+  lang: "en"
 })
 
 let formData = {

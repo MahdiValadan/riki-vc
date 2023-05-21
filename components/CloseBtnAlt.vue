@@ -1,5 +1,5 @@
 <template>
-    <button>
+    <button id="CloseBtnAlt" aria-label="Close Button2">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -1,7 +1,7 @@
 <template>
     <NuxtLink
         :to="url"
-        id="area"
+        :id="'area_' + area.name"
         class="bg-[#FF8F52] text-white w-80 h-80 hover:animate-pulse shadow-lg"
     >
         <img

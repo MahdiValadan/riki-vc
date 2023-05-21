@@ -43,6 +43,13 @@
 </template>
 
 <script setup>
+
+useSeoMeta({
+  title: 'RIKI VC | Projects',
+  description: 'Projects page of RIKI Venture Capital which gives general information about all projects of the website',
+  lang: "en"
+})
+
 const route = useRoute()
 const projectID = route.params.project
 let project = {}
