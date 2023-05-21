@@ -1,5 +1,13 @@
 <template>
   <div class="contact-us-container">
+
+    <!-- show success alert for sending message -->
+    <AlertSuccess
+      class="fixed"
+      v-if="success"
+      msg="Message sent successfully! You'll get response soon!"
+    />
+
     <div class="flex gap-10 flex-col items-center justify-center w-full sm:flex-row mt-5 mb-7">
       <div class="contact-info justify-center items-center">
         <Subtitle
@@ -113,8 +121,23 @@ let formData = {
   message: ""
 }
 
-function handleSubmit() {
-  alert("Message sent successfully! You'll get response soon!")
+let success = ref(false)
+
+async function handleSubmit() {
+
+  const supabase = useSupabaseClient()
+  const { data, error } = await supabase
+    .from('contact_us')
+    .insert([
+      { name: formData.name, email: formData.email, message: formData.message },
+    ])
+  if (error) {
+    alert('Error: Database')
+    console.log(error);
+  } else {
+    // alert("Message sent successfully! You'll get response soon!")
+    success.value = true
+  }
 }
 
 </script>
@@ -256,6 +279,5 @@ textarea {
 
 .submit-button:hover {
   background-color: #FF6F00;
-}
-</style>
+}</style>
   
