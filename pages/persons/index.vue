@@ -1,14 +1,24 @@
 <template>
     <!-- Main Container -->
-    <div id="all_persons_container" class="flex flex-col justify-center items-center pt-5 pl-28 pr-28 pb-14">
+    <div
+        id="all_persons_container"
+        class="flex flex-col justify-center items-center pt-5 pl-28 pr-28 pb-14"
+    >
         <!-- title  -->
         <div id="all_persons_title">
             <Subtitle :text="personTitle"></Subtitle>
         </div>
         <Loading v-if="isLoading"></Loading>
         <!-- members info -->
-        <div id="all_persons_list" class="flex flex-row justify-center flex-wrap gap-6 w-full mt-7">
-            <person v-for="person in personList" :key="person.id" :personInfo="person"/>
+        <div
+            id="all_persons_list"
+            class="flex flex-row justify-center flex-wrap gap-6 w-full mt-7"
+        >
+            <person
+                v-for="person in personList"
+                :key="person.id"
+                :personInfo="person"
+            />
             <div class="w-72"></div>
             <div class="w-72"></div>
             <div class="w-72"></div>
@@ -19,39 +29,28 @@
     </div>
 </template>
 
-<script>
-import smallSubtitle from '~/components/Subtitle.vue';
-import person from '~/components/Person.vue';
-
-export default {
-    components: {
-        smallSubtitle,
-        person,
-    },
-    data() {
-
-        return {
-            personTitle: 'All Members',
-            personList: [],
-            isLoading: true
-        }
-    },
-    async mounted() {
-        const supabase = useSupabaseClient();
-        let { data, error } = {};
-        ({ data, error } = await supabase.from('person').select('*').order('id', { ascending: true }));
-        if (error) {
-            alert('Error: '+error);
-        } else if (data) {
-            this.personList = data;
-        }
-        this.isLoading = false
-    }
-}
-</script>
 <script setup>
+
 useSeoMeta({
-  title: 'RIKI VC | Persons',
-  description: 'Persons page of RIKI Venture Capital which gives information about all persons',
-  lang: "en"
-})</script>
+    title: 'RIKI VC | Persons',
+    description: 'Persons page of RIKI Venture Capital which gives information about all persons',
+    lang: "en"
+})
+
+let personTitle = 'All Members'
+let personList = []
+let isLoading = ref(true)
+
+onMounted(async () => {
+    const supabase = useSupabaseClient()
+    let { data, error } = await supabase.from('person').select('*').order('id', { ascending: true })
+    if (error) {
+        alert('Error: ' + error)
+    } else if (data) {
+        personList = data
+    }
+    isLoading.value = false
+})
+
+</script>
+
