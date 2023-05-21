@@ -28,7 +28,7 @@
                 </h2>
                 <h2 class="text-black">
                     <div
-                        id="managering_projects"
+                        id="managed_projects"
                         class="flex flex-col gap-2"
                     >
                         <span class="font-bold">Project Manager of:</span>
@@ -36,18 +36,18 @@
                             id="project_buttons"
                             class="flex flex-center gap-3"
                         >
-                            <OrangeButton
+                            <LinkButton
                                 v-for="(projectName, index) in projectNames"
                                 :key="index"
                                 :buttonText="projectName"
                                 :link="`/projects/${index}`"
-                            ></OrangeButton>
+                            ></LinkButton>
                         </div>
                     </div>
                 </h2>
                 <p
                     id="cv"
-                    class="text-black text-justify"
+                    class="text-black text-justify text-sm sm:text-base"
                 >
                     {{ person.cv }}
                 </p>

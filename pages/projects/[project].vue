@@ -20,7 +20,7 @@
                 <h2 class="text-black font-bold">
                     <span class="font-bold">Project Areas: </span>
                     <NuxtLink v-for="area in project.areas" :key="area.name" :to="'/areas/' + area.id"
-                        class="text-orange-400">
+                        class="text-[#0e7490]">
                         {{ area.name }}
                         <span class="text-black" v-if="project.areas.indexOf(area) !== project.areas.length - 1">
                             &
@@ -29,7 +29,7 @@
                 </h2>
                 <h2 class="text-black font-bold">
                     <span class="font-bold text-black">Project Manager: </span>
-                    <NuxtLink :to="'/persons/' + project.person.id" class="text-orange-400">
+                    <NuxtLink :to="'/persons/' + project.person.id" class="text-[#0e7490]">
                         {{ project.person.name }}
                     </NuxtLink>
                 </h2>
