@@ -119,7 +119,7 @@ function moveToCurrentSlide() {
 slideInterval = setInterval(nextSlide, 5000);
 
 onBeforeUnmount(() => {
-  clearInterval(this.slideInterval); // clear interval on component destruction
+  clearInterval(slideInterval); // clear interval on component destruction
 })
 
 </script>
