@@ -45,7 +45,7 @@ onMounted(async () => {
     const supabase = useSupabaseClient()
     let { data, error } = await supabase.from('person').select('*').order('id', { ascending: true })
     if (error) {
-        alert('Error: ' + error)
+        alert('Error: Server Connection')
     } else if (data) {
         personList = data
     }

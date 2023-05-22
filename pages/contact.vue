@@ -134,7 +134,7 @@ async function handleSubmit() {
       { name: formData.name, email: formData.email, message: formData.message },
     ])
   if (error) {
-    alert('Error: Database')
+    alert('Error: Server Connection')
     console.log(error);
   } else {
     // alert("Message sent successfully! You'll get response soon!")

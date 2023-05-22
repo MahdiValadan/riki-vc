@@ -57,7 +57,7 @@ const supabase = useSupabaseClient()
 let isLoading = true
 let { data, error } = await supabase.from('projects').select('*, person(id, name), areas(id, name)').eq('id', projectID)
 if (error) {
-    alert('Server Error')
+    alert('Error: Server Connection')
 } else if (data) {
     project = data[0]
 }
