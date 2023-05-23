@@ -157,11 +157,6 @@ async function handleSubmit() {
   flex-direction: column;
 }
 
-
-
-
-
-
 .address-container,
 .phone-container,
 .email-container {
@@ -178,14 +173,14 @@ async function handleSubmit() {
   align-items: center;
   justify-content: center;
   margin-right: 16px;
-  height: 132px;
-  width: 132px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   background-color: #0e7490;
 }
 
 .material-icons {
-  font-size: 22px;
+  font-size: 18px;
   vertical-align: middle;
   margin-right: 8px;
   color: #0e7490;

@@ -9,7 +9,7 @@
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-5">
             <p class="font-semibold text-black text-2xl sm:text-4xl leading-59 pt-20
             pb-14 px-10 sm:px-32">Fueling Innovation:<br />Where Vision Meets Capital</p>
-            <p lang=en class="text-sm sm:text-lg leading-8 text-justify text-gray-600 px-10 sm:px-32 pb-14">Welcome to our venture
+            <p lang=en class="text-sm sm:text-lg leading-8 text-center sm:text-justify text-gray-600 px-10 sm:px-32 pb-14">Welcome to our venture
                 capital website,
                 where we are dedicated to fueling innovation and driving growth. Our
                 mission is to support and invest in the most promising startups and entrepreneurs, helping them achieve
@@ -46,7 +46,7 @@
                 alt="team"
             />
             <div class="flex flex-col justify-end">
-                <p lang=en class="font-normal text-sm sm:text-lg leading-7 text-justify text-gray-600 pb-14">Our venture capital
+                <p lang=en class="font-normal text-sm sm:text-lg leading-7 text-center sm:text-justify text-gray-600 pb-14">Our venture capital
                     team
                     comprises seasoned professionals with a wealth of experience in finance, technology, and
                     entrepreneurship.

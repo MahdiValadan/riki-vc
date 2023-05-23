@@ -16,8 +16,8 @@
             </div>
            
             <div>
-                <h2 class="font-bold mt-12">Contact</h2>
-                <ul class="flex flex-col gap-4 mt-6">
+                <h2 class="font-bold mt-3">Contact</h2>
+                <ul class="flex flex-col gap-4 mt-4">
                     <li>26985 Brighton Lane, Lake Forest, CA</li>
                     <li>support@rikivc.com</li>
                     <li>+1 236 5489</li>

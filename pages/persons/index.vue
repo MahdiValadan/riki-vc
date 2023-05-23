@@ -2,7 +2,7 @@
     <!-- Main Container -->
     <div
         id="all_persons_container"
-        class="flex flex-col justify-center items-center pt-5 pl-28 pr-28 pb-14"
+        class="flex flex-col justify-center items-center pt-5 pb-14"
     >
         <!-- title  -->
         <div id="all_persons_title">
