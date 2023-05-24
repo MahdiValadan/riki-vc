@@ -81,7 +81,7 @@
                 </h2>
                 <div
                     id="detail text"
-                    class="whitespace-pre-line mb-14 text-base"
+                    class="whitespace-pre-line mb-14 text-base w-full"
                 >
                     {{ project.desc_content }}
                 </div>
