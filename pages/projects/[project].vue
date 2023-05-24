@@ -11,7 +11,7 @@
 
                     <img class="border-4 border-[#0e7490] rounded" :src="'/images/projects/' + project.image + '.jpg'"
                         alt="project image">
-                    <LinkButton class="items-center" link="" buttonText="Visit site"></LinkButton>
+                    <LinkButton class="items-center" :link="project.link" buttonText="Visit site"></LinkButton>
                 </div>
 
                 <!-- Right Side -->
@@ -56,31 +56,29 @@
                     {{ project.desc_content }}
                 </div>
 
-                <div v-if="project.desc_data != null">
-                    <div id="number data" class="w-full flex flex-col items-center justify-between sm:flex-row">
-                        <div id="1-data" class="data-container flex flex-col items-center w-1/3 sm:w-full">
-                            <div id="number1" class="text-[#0e7490] text-7xl">
-                                {{ project.desc_data[0] }}
-                            </div>
-                            <div id="data1" class="">
-                                {{ project.desc_data[1] }}
-                            </div>
+                <div id="number data" class="w-full flex flex-col items-center justify-between gap-5 lg:flex-row">
+                    <div id="1-data" class="data-container flex flex-col items-center w-1/3 sm:w-full">
+                        <div id="number1" class="text-[#0e7490] text-7xl">
+                            {{ project.desc_data[0] }}
                         </div>
-                        <div id="2-data" class="data-container flex flex-col items-center w-1/3 sm:w-full">
-                            <div id="number2" class="text-[#0e7490] text-7xl">
-                                {{ project.desc_data[2] }}
-                            </div>
-                            <div id="data2" class="">
-                                {{ project.desc_data[3] }}
-                            </div>
+                        <div id="data1" class="">
+                            {{ project.desc_data[1] }}
                         </div>
-                        <div id="3-data" class="data-container flex flex-col items-center w-1/3 sm:w-full">
-                            <div id="number3" class="text-[#0e7490] text-7xl">
-                                {{ project.desc_data[4] }}
-                            </div>
-                            <div id="data3" class="">
-                                {{ project.desc_data[5] }}
-                            </div>
+                    </div>
+                    <div id="2-data" class="data-container flex flex-col items-center w-1/3 sm:w-full">
+                        <div id="number2" class="text-[#0e7490] text-7xl">
+                            {{ project.desc_data[2] }}
+                        </div>
+                        <div id="data2" class="">
+                            {{ project.desc_data[3] }}
+                        </div>
+                    </div>
+                    <div id="3-data" class="data-container flex flex-col items-center w-1/3 sm:w-full">
+                        <div id="number3" class="text-[#0e7490] text-7xl">
+                            {{ project.desc_data[4] }}
+                        </div>
+                        <div id="data3" class="">
+                            {{ project.desc_data[5] }}
                         </div>
                     </div>
                 </div>
