@@ -1,14 +1,25 @@
 <template>
-  <div class="goal-container">
+  <div class="goal-container pt-5">
     <Subtitle text="Our Goals" />
 
+    <!-- Carousel -->
     <div class="carousel">
       <div class="carousel-container">
-        <div class="carousel-wrapper" ref="carousel">
-          <div class="carousel-slide" v-for="(person, index) in people" :key="index">
+        <div
+          class="carousel-wrapper"
+          ref="carousel"
+        >
+          <div
+            class="carousel-slide"
+            v-for="(person, index) in people"
+            :key="index"
+          >
             <div class="person-card">
               <div class="person-img-wrapper">
-                <img :src="person.image" :alt="person.name" />
+                <img
+                  :src="person.image"
+                  :alt="person.name"
+                />
               </div>
               <div class="person-info">
                 <h3 class="person-heading">{{ person.name }}</h3>
@@ -19,37 +30,60 @@
         </div>
       </div>
       <div class="carousel-controls">
-        <button class="carousel-control" @click="prevSlide">
+        <button
+          class="carousel-control"
+          @click="prevSlide"
+        >
           &#9664;
         </button>
         <div class="carousel-dots">
-          <span class="carousel-dot" v-for="(person, index) in people" :key="index" @click="currentSlide(index)"
-            :class="{ active: currentSlideIndex === index }">
+          <span
+            class="carousel-dot"
+            v-for="(person, index) in people"
+            :key="index"
+            @click="currentSlide(index)"
+            :class="{ active: currentSlideIndex === index }"
+          >
           </span>
         </div>
-        <button class="carousel-control" @click="nextSlide">
+        <button
+          class="carousel-control"
+          @click="nextSlide"
+        >
           &#9654;
         </button>
       </div>
     </div>
   </div>
-  <div id="strategy-container" class="mx-28 flex flex-wrap flex-row items-center mb-16 sm:flex-col">
-    <Subtitle class="w-fit" text="Our Value Creation Strategy" />
-    <div class="text-2xl mb-9 items-start w-full">
-      We have been active for 17 years with in-depth experience in the Italian market.
-    </div>
-    <div class="flex flex-col items-center sm:flex-row gap-20">
-      <div class="w-full md:w-1/3">
+
+  <!-- Strategy -->
+  <div
+    id="strategy-container"
+    class=" mx-10 sm:mx-28 flex flex-wrap flex-col items-center mb-16 "
+  >
+    <Subtitle
+      class="w-fit"
+      text="Our Value Creation Strategy"
+    />
+    <p class="text-2xl mt-6 mb-12 text-center">
+      We have been active for 17 years with in-depth experience in the Italian market
+    </p>
+
+    <div class="flex flex-col items-center sm:flex-row gap-x-20 gap-y-10">
+      <p class="w-full md:w-1/3 text-base sm:text-lg">
         The Founding partners have been working together since 2006 and the Partners all together have been working
         alongside since 2016, holding 50+ cumulative years of experience in the field. The same Team has managed the
         previous initiative of RIKI.
-        <br/><br/>
+        <br /><br />
         We follow a very proactive approach by making our experience and skills available to our portfolio companies. We
         have a “hands-on” approach, supporting the most important operational decisions at different levels of the
         company: from strategy to finance and management team selection.
-      </div>
+      </p>
       <div class="sm:w-3/5 w-full">
-        <img src="/images/about/strategy.jpg" alt="team strategy"/>
+        <img
+          src="/images/about/strategy.jpg"
+          alt="team strategy"
+        />
       </div>
     </div>
   </div>
@@ -225,4 +259,6 @@ onBeforeUnmount(() => {
 
 .carousel-dot.active {
   background-color: #0e7490;
-}</style>
+}
+
+</style>
