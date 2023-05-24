@@ -97,20 +97,22 @@ function handleResize() {
     }
 }
 
+// getting areas from database
+const supabase = useSupabaseClient()
+
+let { data: fetchedAreas, error: areasError } = await supabase.from('areas').select('name').order('name', { ascending: true })
+
+areas = fetchedAreas
+
+if (areasError) {
+    alert('Error: Server Connection')
+}
+
 onMounted(async () => {
 
     // check display size
     window.addEventListener('resize', handleResize);
     handleResize();
-
-    // getting areas from database
-    const supabase = useSupabaseClient()
-    let { data: fetchedAreas, error: areasError } = await supabase.from('areas').select('name').order('name', { ascending: true })
-    areas = fetchedAreas
-
-    if (areasError) {
-        alert('Error: Server Connection')
-    }
 
     // define variables for getting projects from database
     let { data, error } = {}
