@@ -33,13 +33,13 @@
       </div>
     </div>
   </div>
-  <div id="strategy-container" class="mx-28 flex flex-col items-center mb-16">
+  <div id="strategy-container" class="mx-28 flex flex-wrap flex-row items-center mb-16 sm:flex-col">
     <Subtitle class="w-fit" text="Our Value Creation Strategy" />
     <div class="text-2xl mb-9 items-start w-full">
       We have been active for 17 years with in-depth experience in the Italian market.
     </div>
-    <div class="flex flex-row items-center gap-20">
-      <div class="w-1/3">
+    <div class="flex flex-col items-center sm:flex-row gap-20">
+      <div class="w-full md:w-1/3">
         The Founding partners have been working together since 2006 and the Partners all together have been working
         alongside since 2016, holding 50+ cumulative years of experience in the field. The same Team has managed the
         previous initiative of RIKI.
@@ -48,7 +48,7 @@
         have a “hands-on” approach, supporting the most important operational decisions at different levels of the
         company: from strategy to finance and management team selection.
       </div>
-      <div class="w-3/5">
+      <div class="sm:w-3/5 w-full">
         <img src="/images/about/strategy.jpg" alt="team strategy"/>
       </div>
     </div>
