@@ -1,24 +1,14 @@
 <template>
-  <div class="about-container">
+  <div class="goal-container">
     <Subtitle text="Our Goals" />
 
     <div class="carousel">
       <div class="carousel-container">
-        <div
-          class="carousel-wrapper"
-          ref="carousel"
-        >
-          <div
-            class="carousel-slide"
-            v-for="(person, index) in people"
-            :key="index"
-          >
+        <div class="carousel-wrapper" ref="carousel">
+          <div class="carousel-slide" v-for="(person, index) in people" :key="index">
             <div class="person-card">
               <div class="person-img-wrapper">
-                <img
-                  :src="person.image"
-                  :alt="person.name"
-                />
+                <img :src="person.image" :alt="person.name" />
               </div>
               <div class="person-info">
                 <h3 class="person-heading">{{ person.name }}</h3>
@@ -29,28 +19,37 @@
         </div>
       </div>
       <div class="carousel-controls">
-        <button
-          class="carousel-control"
-          @click="prevSlide"
-        >
+        <button class="carousel-control" @click="prevSlide">
           &#9664;
         </button>
         <div class="carousel-dots">
-          <span
-            class="carousel-dot"
-            v-for="(person, index) in people"
-            :key="index"
-            @click="currentSlide(index)"
-            :class="{ active: currentSlideIndex === index }"
-          >
+          <span class="carousel-dot" v-for="(person, index) in people" :key="index" @click="currentSlide(index)"
+            :class="{ active: currentSlideIndex === index }">
           </span>
         </div>
-        <button
-          class="carousel-control"
-          @click="nextSlide"
-        >
+        <button class="carousel-control" @click="nextSlide">
           &#9654;
         </button>
+      </div>
+    </div>
+  </div>
+  <div id="strategy-container" class="mx-28 flex flex-col items-center mb-16">
+    <Subtitle class="w-fit" text="Our Value Creation Strategy" />
+    <div class="text-2xl mb-9 items-start w-full">
+      We have been active for 17 years with in-depth experience in the Italian market.
+    </div>
+    <div class="flex flex-row items-center gap-20">
+      <div class="w-1/3">
+        The Founding partners have been working together since 2006 and the Partners all together have been working
+        alongside since 2016, holding 50+ cumulative years of experience in the field. The same Team has managed the
+        previous initiative of RIKI.
+        <br/><br/>
+        We follow a very proactive approach by making our experience and skills available to our portfolio companies. We
+        have a “hands-on” approach, supporting the most important operational decisions at different levels of the
+        company: from strategy to finance and management team selection.
+      </div>
+      <div class="w-3/5">
+        <img src="/images/about/strategy.jpg" alt="team strategy"/>
       </div>
     </div>
   </div>
@@ -68,22 +67,22 @@ let people = [
   {
     name: "Increase Revenue ",
     title: " Our company aims to expand its market reach by targeting new regions, increasing brand awareness, and exploring partnerships with complementary businesses. We will develop a comprehensive marketing strategy that leverages social media, SEO, and other digital marketing channels to reach a wider audience. We will also conduct market research to understand the unique needs and preferences of customers in different regions and tailor our offerings accordingly.",
-    image: "https://via.placeholder.com/150",
+    image: "/images/about/revenue.jpg",
   },
   {
     name: "Enhance Product Quality",
     title: " We are committed to enhancing our product quality by investing in research and development, testing, and continuous improvement. We will conduct regular quality audits to identify areas for improvement and implement measures to address any quality issues promptly. Our goal is to exceed customer expectations and establish our brand as a market leader for product excellence.",
-    image: "https://via.placeholder.com/150",
+    image: "/images/about/Product-Quality.jpg",
   },
   {
     name: "Build a Strong Brand Identity",
     title: "Our company aims to build a strong brand identity by creating a consistent and compelling brand image across all touch points. We will invest in branding initiatives that align with our company values, mission, and vision. We will also foster brand loyalty by providing exceptional customer service, engaging with customers on social media, and creating memorable customer experiences.",
-    image: "https://via.placeholder.com/150",
+    image: "/images/about/brand identity.jpg",
   },
   {
     name: "Foster a Positive Company Culture",
     title: "Our company recognizes that our employees are our most valuable asset, and we aim to foster a positive company culture that promotes employee satisfaction, retention, and productivity. We will invest in employee training and development, offer competitive compensation and benefits packages, and create a work environment that fosters collaboration, innovation, and a sense of belonging. We believe that a positive company culture will result in happier, more engaged employees, and ultimately lead to better business outcomes",
-    image: "https://via.placeholder.com/150",
+    image: "/images/about/Foster-Positive.jpg",
   }
 ]
 const carousel = ref(null)
@@ -117,7 +116,7 @@ function moveToCurrentSlide() {
   }
 }
 
-slideInterval = setInterval(nextSlide, 5000);
+slideInterval = setInterval(nextSlide, 8000);
 
 onBeforeUnmount(() => {
   clearInterval(slideInterval); // clear interval on component destruction
@@ -126,7 +125,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.about-container {
+.goal-container {
   min-height: 100vh;
   background-color: #f2f2f2;
   display: flex;
@@ -174,8 +173,8 @@ onBeforeUnmount(() => {
 }
 
 .person-img-wrapper {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -226,5 +225,4 @@ onBeforeUnmount(() => {
 
 .carousel-dot.active {
   background-color: #0e7490;
-}
-</style>
+}</style>
