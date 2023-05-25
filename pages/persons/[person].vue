@@ -1,4 +1,10 @@
 <template>
+    <div id="backPerson" class="pt-5">
+        <NuxtLink class="text-[#0e7490] text-2xl font-bold mx-10 whitespace-pre-wrap" to="/persons">
+            {{ backButtonText }}
+        </NuxtLink>
+    </div>
+
     <div lang="en" class="flex flex-col min-h-screen items-center py-20">
         <!-- Box -->
         <div class="flex flex-row flex-wrap bg-white w-9/12 min-h-[500px] rounded-md shadow-md">
@@ -66,6 +72,7 @@ const route = useRoute()
 const personId = route.params.person
 let person = {}
 let projectNames = {}
+let backButtonText = "<  Persons"
 const supabase = useSupabaseClient()
 let { data, error } = await supabase.from('person').select('*').eq('id', personId)
 if (error) {
