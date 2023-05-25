@@ -5,14 +5,14 @@
             <div class="w-full md:w-6/12">
                 <!-- LOGO -->
                 <div class="font-bold text-xl text-white">
-                    <span class="text-[#06b6d4]">RIKI</span> VC
+                    <span class="text-cyan-400">RIKI</span> VC
                 </div>
                 <!-- Copyright -->
                 <p class="text-justify mt-6">
                     &#169; 2023 RIKI VC All Rights Reserved. <br>
                     This Website is Inspired by
                     <a
-                        class="text-[#06b6d4]"
+                        class="text-cyan-400"
                         href="https://www.oltreimpact.com/"
                     >
                         Oltre Impact
@@ -20,7 +20,7 @@
                     as a University Project at the Politecnico di Milano. <br>
                     Persons and Projects Images are taken from
                     <a
-                        class="text-[#06b6d4]"
+                        class="text-cyan-400"
                         href="https://www.oltreimpact.com/"
                     >
                         Oltre Impact.
