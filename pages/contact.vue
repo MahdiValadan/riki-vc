@@ -20,9 +20,9 @@
             <i class="material-icons">location</i>
           </div>
           <div class="address-text">
-            <p class="address-line">26985 Brighton Lane,</p>
-            <p class="address-line">Lake Forest</p>
-            <p class="address-line"> CA 94111</p>
+            <p class="address-line">Piazza Leonardo da Vinci, 32,</p>
+            <p class="address-line">20133 Milano MI,</p>
+            <p class="address-line">Italy</p>
           </div>
         </div>
         <div class="phone-container w-full">
