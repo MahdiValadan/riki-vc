@@ -1,22 +1,11 @@
 <template>
-    <div
-        id="backPerson"
-        class="pt-5"
-    >
-        <NuxtLink
-            class="text-[#0e7490] text-2xl font-bold mx-10 whitespace-pre-wrap"
-            to="/persons"
-        >
-            {{ backButtonText }}
-        </NuxtLink>
-    </div>
-    <!-- <Breadcrumb
+    <Breadcrumb
         pre="Persons"
         :current="'Person: ' + person.name"
-    /> -->
+    />
     <div
         lang="en"
-        class="flex flex-col min-h-screen items-center py-20"
+        class="flex flex-col min-h-screen items-center py-8"
     >
         <!-- Box -->
         <div class="flex flex-row flex-wrap bg-white w-9/12 min-h-[500px] rounded-md shadow-md">
@@ -90,7 +79,6 @@ const personId = route.params.person
 // 
 let person = {}
 let projectNames = {}
-let backButtonText = "<  Persons"
 
 // Fetch from DB
 const supabase = useSupabaseClient()

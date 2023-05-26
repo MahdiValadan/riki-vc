@@ -175,18 +175,3 @@ onMounted(async () => {
 })
 
 </script>
-
-<style scoped>
-.slide-enter-active {
-    transition: all 0.6s ease;
-}
-
-.slide-leave-active {
-    transition: all 0.6s ease;
-}
-
-.slide-enter-from,
-.slide-leave-to {
-    transform: translateY(100vh);
-}
-</style>

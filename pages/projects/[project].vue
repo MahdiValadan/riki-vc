@@ -1,11 +1,10 @@
 <template>
-    <div id="backProject" class="pt-5">
-        <NuxtLink class="text-[#0e7490] text-2xl font-bold mx-10 whitespace-pre-wrap" to="/projects">
-            {{ backButtonText }}
-        </NuxtLink>
-    </div>
+         <Breadcrumb
+            pre="Projects"
+            :current="'Project: ' + project.name"
+        />
 
-    <div class="flex flex-col min-h-screen items-center pt-5 pb-14 mt-10">
+    <div class="flex flex-col min-h-screen items-center pt-5 pb-14 mt-8">
         <!-- <Subtitle :text="'Project: ' + project.name" class="mb-12"/> -->
         <!-- Box -->
         <div
@@ -104,23 +103,21 @@ useSeoMeta({
     lang: "en"
 })
 
-let backButtonText = "<  Projects"
 const route = useRoute()
 const projectID = route.params.project
+
 let project = {}
-const supabase = useSupabaseClient()
+
 let isLoading = true
+
+const supabase = useSupabaseClient()
 let { data, error } = await supabase.from('projects').select('*, person(id, name), areas(id, name)').eq('id', projectID)
 if (error) {
     alert('Error: Server Connection')
 } else if (data) {
     project = data[0]
 }
-isLoading = false
-</script>
 
-<style>
-.data-container {
-    min-height: 120px;
-}
-</style>
+isLoading = false
+
+</script>
