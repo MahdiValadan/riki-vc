@@ -1,11 +1,23 @@
 <template>
-    <div id="backPerson" class="pt-5">
-        <NuxtLink class="text-[#0e7490] text-2xl font-bold mx-10 whitespace-pre-wrap" to="/persons">
+    <div
+        id="backPerson"
+        class="pt-5"
+    >
+        <NuxtLink
+            class="text-[#0e7490] text-2xl font-bold mx-10 whitespace-pre-wrap"
+            to="/persons"
+        >
             {{ backButtonText }}
         </NuxtLink>
     </div>
-
-    <div lang="en" class="flex flex-col min-h-screen items-center py-20">
+    <!-- <Breadcrumb
+        pre="Persons"
+        :current="'Person: ' + person.name"
+    /> -->
+    <div
+        lang="en"
+        class="flex flex-col min-h-screen items-center py-20"
+    >
         <!-- Box -->
         <div class="flex flex-row flex-wrap bg-white w-9/12 min-h-[500px] rounded-md shadow-md">
             <!-- Left Side -->
@@ -63,16 +75,24 @@
 </template>
 
 <script setup>
+
+// SEO
 useSeoMeta({
-  title: 'RIKI VC | Person',
-  description: ' Person page of RIKI Venture Capital which gives information about all Members',
-  lang: "en"
+    title: 'RIKI VC | Person',
+    description: ' Person page of RIKI Venture Capital which gives information about all Members',
+    lang: "en"
 })
+
+// GET Route Params
 const route = useRoute()
 const personId = route.params.person
+
+// 
 let person = {}
 let projectNames = {}
 let backButtonText = "<  Persons"
+
+// Fetch from DB
 const supabase = useSupabaseClient()
 let { data, error } = await supabase.from('person').select('*').eq('id', personId)
 if (error) {
@@ -90,6 +110,6 @@ if (error) {
         return acc;
     }, {});
 
-    console.log('Project names:', projectNames)
+    // console.log('Project names:', projectNames)
 }
 </script>

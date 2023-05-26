@@ -13,6 +13,7 @@
       <!-- Desktop: Nav Links -->
       <NavLinks />
       <!-- Small Devices: Menu Button -->
+
       <MenuBtn
         v-if="!isMenuOpen"
         class="lg:hidden"
@@ -23,12 +24,18 @@
         class="lg:hidden"
         @click="menuFunction"
       />
+
     </nav>
-    <!-- Breadcrumb -->
-    <div class="bg-[#0e7490] h-6"></div>
+    <!-- Blue Line -->
+    <div class="bg-[#0e7490] h-5"></div>
   </header>
   <!-- Small Devices: Menu  -->
-  <Menu v-if="isMenuOpen" @menu-link-clicked="menuFunction"/>
+  <Transition name="slide">
+    <Menu
+      v-if="isMenuOpen"
+      @menu-link-clicked="menuFunction"
+    />
+  </Transition>
 </template>
   
 <script setup>
@@ -37,3 +44,19 @@ let menuFunction = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 </script>
+
+<style scoped>
+/* Slide Left */
+.slide-enter-active {
+  transition: all 0.5s ease;
+}
+
+.slide-leave-active {
+  transition: all 0.5s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100vw);
+}
+</style>

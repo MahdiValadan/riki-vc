@@ -2,33 +2,40 @@
     <!-- Main Container -->
     <div
         id="all_persons_container"
-        class="flex flex-col justify-center items-center pt-5 pb-14"
+        class="flex flex-col items-center pt-5 pb-14 min-h-screen"
     >
         <!-- title  -->
         <div id="all_persons_title">
             <Subtitle :text="personTitle"></Subtitle>
         </div>
+
         <Loading v-if="isLoading"></Loading>
+
         <!-- members info -->
-        <div
-            id="all_persons_list"
-            class="flex flex-row justify-center flex-wrap gap-6 w-full mt-7"
-        >
-            <person
-                v-for="person in personList"
-                :key="person.id"
-                :personInfo="person"
-            />
-            <div class="w-72"></div>
-            <div class="w-72"></div>
-            <div class="w-72"></div>
-            <div class="w-72"></div>
-            <div class="w-72"></div>
-            <div class="w-72"></div>
-        </div>
+        <Transition name="slide">
+
+            <div
+                v-if="!isLoading"
+                id="all_persons_list"
+                class="flex flex-row justify-center flex-wrap gap-6 w-full mt-7"
+            >
+                <person
+                    v-for="person in personList"
+                    :key="person.id"
+                    :personInfo="person"
+                />
+                <div class="w-72"></div>
+                <div class="w-72"></div>
+                <div class="w-72"></div>
+                <div class="w-72"></div>
+                <div class="w-72"></div>
+                <div class="w-72"></div>
+            </div>
+        </Transition>
     </div>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 
 useSeoMeta({
@@ -54,3 +61,18 @@ onMounted(async () => {
 
 </script>
 
+<!-- STYLE -->
+<style scoped>
+.slide-enter-active {
+    transition: all 0.6s ease;
+}
+
+.slide-leave-active {
+    transition: all 0.6s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    transform: translateY(100vh);
+}
+</style>

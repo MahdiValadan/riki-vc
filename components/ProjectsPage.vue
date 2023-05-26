@@ -2,12 +2,12 @@
     <!-- Main Container -->
     <div class="flex flex-row min-h-screen">
         <!-- Side Menu -->
+        <!-- <Transition name="slide"> -->
         <div
             id="side-menu"
-            class="fixed w-screen h-full lg:static lg:w-64 lg:h-auto bg-white p-6 "
-            :style="{
-                display: active ? 'block' : 'none'
-            }"
+            class="fixed w-screen h-full lg:static lg:w-72 lg:h-auto bg-white/70 backdrop-blur-xl
+                    py-6 px-10"
+            v-if="active"
         >
             <ul class="flex flex-col gap-4 font-medium text-lg">
 
@@ -43,6 +43,7 @@
                 </li>
             </ul>
         </div>
+        <!-- </Transition> -->
         <!-- project container -->
         <div
             id="projects-container"
@@ -56,21 +57,25 @@
 
             <Subtitle :text="title" />
             <Loading v-if="isLoading" />
-            <div class="flex flex-row justify-center flex-wrap gap-8 w-full mt-7">
-                <Project
-                    v-for="project in projectsList"
-                    :key="project.id"
-                    :project="project"
-                />
-                <div class="w-60"></div>
-                <div class="w-60"></div>
-                <div class="w-60"></div>
-            </div>
+            <Transition name="slide">
+            <div  v-if="!isLoading" class="flex flex-row justify-center flex-wrap gap-8 w-full mt-7">
+                    <Project
+                        v-for="project in projectsList"
+                        :key="project.id"
+                        :project="project"
+                    />
+                    <div class="w-60"></div>
+                    <div class="w-60"></div>
+                    <div class="w-60"></div>
+                </div>
+            </Transition>
         </div>
     </div>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
+
 let projectsList = []
 let areas = []
 let isLoading = ref(true)
@@ -108,6 +113,7 @@ if (areasError) {
     alert('Error: Server Connection')
 }
 
+// Mounted 
 onMounted(async () => {
 
     // check display size
@@ -169,3 +175,18 @@ onMounted(async () => {
 })
 
 </script>
+
+<style scoped>
+.slide-enter-active {
+    transition: all 0.6s ease;
+}
+
+.slide-leave-active {
+    transition: all 0.6s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    transform: translateY(100vh);
+}
+</style>

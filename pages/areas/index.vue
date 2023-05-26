@@ -6,32 +6,39 @@
     >
         <div class="flex flex-col items-center min-h-screen">
             <Subtitle text="All Areas" />
+
             <Loading v-if="isLoading"></Loading>
+
             <!-- area container -->
-            <div
-                id="areas-container"
-                class="w-11/12 flex flex-row items-center p-6"
-            >
-                <div class="flex flex-row justify-center flex-wrap gap-8 w-full">
-                    <Area
-                        v-for="area in areasList"
-                        :key="area.id"
-                        :area="area"
-                    />
-                    <div class="w-80"></div>
-                    <div class="w-80"></div>
-                    <div class="w-80"></div>
+            <Transition name="slide">
+
+                <div
+                    v-if="!isLoading"
+                    id="areas-container"
+                    class="w-11/12 flex flex-row items-center p-6"
+                >
+                    <div class="flex flex-row justify-center flex-wrap gap-8 w-full">
+                        <Area
+                            v-for="area in areasList"
+                            :key="area.id"
+                            :area="area"
+                        />
+                        <div class="w-80"></div>
+                        <div class="w-80"></div>
+                        <div class="w-80"></div>
+                    </div>
                 </div>
-            </div>
+            </Transition>
         </div>
     </div>
 </template>
 
 <script setup>
 useSeoMeta({
-  title: 'RIKI VC | Areas',
-  description: ' Areas page of RIKI Venture Capital which gives information about all areas'
+    title: 'RIKI VC | Areas',
+    description: ' Areas page of RIKI Venture Capital which gives information about all areas'
 })
+
 const supabase = useSupabaseClient()
 let areasList = []
 let isLoading = ref(true)
@@ -47,3 +54,19 @@ onMounted(async () => {
 })
 
 </script>
+
+<!-- STYLE -->
+<style scoped>
+.slide-enter-active {
+    transition: all 0.6s ease;
+}
+
+.slide-leave-active {
+    transition: all 0.6s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    transform: translateY(100vh);
+}
+</style>
