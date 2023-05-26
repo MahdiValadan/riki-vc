@@ -4,7 +4,7 @@
         class="flex flex-col fixed w-screen h-screen bg-white/70 backdrop-blur-xl p-10 z-40"
     >
         <ul
-            class="flex flex-col items-center gap-6 font-semibold text-lg text-center"
+            class="flex flex-col items-center gap-6 font-semibold text-xl text-center"
         >
             <li class="transition hover:text-[#0e7490]" @click="closeMenu">
                 <NuxtLink to="/persons">Persons</NuxtLink>

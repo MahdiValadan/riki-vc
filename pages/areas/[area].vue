@@ -6,7 +6,7 @@
         <Breadcrumb
             pre="Areas"
             :current="'Area: ' + area.name"
-            class="border-2 rounded-md border-cyan-600 w-36 justify-center"
+            class="border-2 rounded-md border-cyan-600 w-36 justify-center shadow-lg"
         />
         <div class="flex flex-col min-h-screen py-8 items-center">
             <!-- Box -->

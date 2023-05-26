@@ -10,10 +10,10 @@
     </div> -->
     <div
         id="breadcrumb"
-        class="flex flex-row items-center my-5 mx-10 px-5"
+        class="flex flex-row items-center my-5 mx-5 px-5"
     >
         <NuxtLink
-            class="text-cyan-600 text-2xl font-bold"
+            class="text-cyan-600 text-lg sm:text-2xl font-bold text-shadow"
             :to="'/' + pre.toLowerCase()"
         >
             &lt {{ pre }}

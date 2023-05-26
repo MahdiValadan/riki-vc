@@ -7,15 +7,15 @@
         </div>
         <!-- intro panel -->
         <div class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center pb-14 shadow-md mx-1 my-5">
-            <p class="font-semibold text-black text-2xl sm:text-5xl text-center pt-20
-            pb-14 px-10 sm:px-32">
+            <p class="font-semibold text-black text-2xl md:text-3xl lg:text-5xl text-center pt-20
+            pb-14 px-10 lg:px-32">
                 Fueling Innovations
                 <br>
                 Where Vision Meets Capital
             </p>
             <p
                 lang=en
-                class="text-base sm:text-xl leading-8 text-center sm:text-justify text-gray-600 px-10 sm:px-32 pb-14"
+                class="text-base lg:text-xl leading-8 text-center lg:text-justify text-gray-600 px-10 lg:px-32 pb-14"
             >
                 Welcome to our venture
                 capital website,
@@ -30,10 +30,10 @@
                 src="~/assets/images/home/home_intro.jpg"
                 alt="intro"
             />
-            <div class="w-full flex flex-col justify-start pt-20 px-10 sm:px-20 pb-14">
-                <p class="font-extrabold text-2xl sm:text-4xl leading-14">Our Motivation:</p>
+            <div class="w-full flex flex-col justify-start pt-20 px-10 lg:px-20 pb-14">
+                <p class="font-extrabold text-2xl lg:text-4xl leading-14">Our Motivation:</p>
                 <div
-                    class="flex flex-row flex-wrap gap-8 sm:justify-between pt-12 font-bold text-2xl sm:text-4xl text-[#0e7490] break-all">
+                    class="flex flex-col md:flex-row flex-wrap gap-8 md:justify-between pt-12 font-bold text-2xl lg:text-4xl text-[#0e7490] break-all">
                     <p lang=en>PROSPERITY</p>
                     <p lang=en>ABUNDANCE</p>
                     <p lang=en>FORTUNE</p>
@@ -47,16 +47,16 @@
         </div>
         <!-- team panel -->
         <div
-            class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center px-10 py-16 shadow-md mx-1 my-5 sm:flex-row gap-10">
+            class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center px-10 py-16 shadow-md mx-1 my-5 lg:flex-row gap-10">
             <img
-                class="w-full sm:w-3/5"
+                class="w-full lg:w-3/5"
                 src="~/assets/images/home/team.jpg"
                 alt="team"
             />
             <div class="flex flex-col justify-end">
                 <p
                     lang=en
-                    class="font-normal text-sm sm:text-lg leading-7 text-center sm:text-justify text-gray-600 pb-14"
+                    class="font-normal text-lg lg:text-lg leading-7 text-center lg:text-justify text-gray-600 pb-14"
                 >Our venture capital
                     team
                     comprises seasoned professionals with a wealth of experience in finance, technology, and
@@ -76,7 +76,7 @@
                     portfolio companies thrive.
                 </p>
                 <!-- this button goes to All Persons tab -->
-                <div class="flex justify-center sm:justify-end">
+                <div class="flex justify-center lg:justify-end">
                     <LinkButton
                         link="/persons"
                         buttonText="Discover Team"
@@ -101,6 +101,6 @@ useSeoMeta({
 
 <style>
 .size-style {
-    width: 78vw;
+    width: 80vw;
 }
 </style>
