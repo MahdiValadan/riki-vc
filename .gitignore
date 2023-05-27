@@ -132,8 +132,5 @@ dist
 #output
 .output
 
-#env
-.env
-
 #vscode
 .vscode

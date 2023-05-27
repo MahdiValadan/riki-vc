@@ -84,13 +84,16 @@ let projectNames = {}
 const supabase = useSupabaseClient()
 let { data, error } = await supabase.from('person').select('*').eq('id', personId)
 if (error) {
-    alert('Error: Server Connection')
-} else if (data) {
+    // alert('Error: Server Connection')
+    throw createError({ statusCode: 500, statusMessage: 'Server Error' })
+}
+else if (data[0]) {
     person = data[0]
     let { data: projectsData, error: projectsError } = await supabase.from('projects').select('*').eq('person_id', personId)
 
     if (projectsError) {
-        console.error('Error getting project names:', projectsError.message)
+        // console.error('Error getting project names:', projectsError.message)
+        throw createError({ statusCode: 500, statusMessage: 'Server Error' })
     }
 
     projectNames = projectsData.reduce((acc, project) => {
@@ -99,5 +102,8 @@ if (error) {
     }, {});
 
     // console.log('Project names:', projectNames)
+}
+else {
+    throw createError({ statusCode: 404, statusMessage: 'Person not found' })
 }
 </script>

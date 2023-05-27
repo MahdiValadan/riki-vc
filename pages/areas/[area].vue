@@ -43,10 +43,14 @@ let backgroundUrl = ""
 
 let { data, error } = await supabase.from('areas').select('*').eq('id', areaID)
 if (error) {
-    alert('Error: Server Connection')
-} else if (data) {
+    // alert('Error: Server Connection')
+    throw createError({ statusCode: 500, statusMessage: 'Server Error' })
+
+} else if (data[0]) {
     area = data[0]
     backgroundUrl = '/images/areas/' + area.image
+} else {
+    throw createError({ statusCode: 404, statusMessage: 'Area not found' })
 }
 
 </script>
