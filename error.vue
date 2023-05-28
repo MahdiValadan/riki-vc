@@ -45,6 +45,11 @@
 </template>
   
 <script setup>
+useSeoMeta({
+  title: 'RIKI VC | Error',
+  description: 'Error page of RIKI Venture Capital which displays errors',
+  lang: "en"
+})
 const props = defineProps({
     error: Object
 })
