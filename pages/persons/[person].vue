@@ -75,7 +75,7 @@ useSeoMeta({
 // GET Route Params
 const route = useRoute()
 const personId = route.params.person
-if (isNaN(areaID)) {
+if (isNaN(personId)) {
     throw createError({ statusCode: 404, statusMessage: 'Person not found' })
 }
 // 
