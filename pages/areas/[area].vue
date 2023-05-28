@@ -37,6 +37,9 @@ useSeoMeta({
 
 const route = useRoute()
 const areaID = route.params.area
+if (isNaN(areaID)) {
+    throw createError({ statusCode: 404, statusMessage: 'Area not found' })
+}
 const supabase = useSupabaseClient()
 let area = {}
 let backgroundUrl = ""

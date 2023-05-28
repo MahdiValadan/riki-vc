@@ -166,7 +166,9 @@ useSeoMeta({
 
 const route = useRoute()
 const projectID = route.params.project
-
+if (isNaN(projectID)) {
+    throw createError({ statusCode: 404, statusMessage: 'Project not found' })
+}
 let project = {}
 
 let isLoading = true
