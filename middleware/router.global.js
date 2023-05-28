@@ -1,8 +1,8 @@
 export default defineNuxtRouteMiddleware((to, from) => {
     const router = useRouter()
     let routes = router.options.routes
-    const validPaths = []
     const dynamicRoutes = ['/areas/', '/projects/', '/persons/']
+    const validPaths = []
     routes.forEach(route => {
         validPaths.push(route.path)
     });
