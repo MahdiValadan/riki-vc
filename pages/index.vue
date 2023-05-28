@@ -88,15 +88,17 @@
 </template>
 
 
-
 <script setup >
-let introTitle = 'INTRO'
-let teamTitle = 'TEAM'
+
 useSeoMeta({
     title: 'RIKI VC | Home',
     description: 'Home page of RIKI Venture Capital serves as a welcoming introduction',
     lang: "en"
 })
+
+let introTitle = 'INTRO'
+let teamTitle = 'TEAM'
+
 </script>
 
 <style>
