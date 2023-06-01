@@ -8,7 +8,7 @@
       msg="Message sent successfully! You'll get response soon!"
     />
 
-    <div class="flex gap-10 flex-col items-center justify-center w-full sm:flex-row mt-5 mb-7">
+    <div class="flex gap-20 flex-col items-center justify-center w-full lg:flex-row mt-5 mb-7">
       <div class="contact-info justify-center items-center">
         <Subtitle
           class="w-fit mt-1 mb-8"
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="contact-image">
+      <div id="contact-image">
         <img
           src="/images/people/contact.jpg"
           alt="contact-image"
@@ -172,9 +172,9 @@ async function handleSubmit() {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 16px;
-  height: 100px;
-  width: 100px;
+  margin-right: 30px;
+  min-height: 100px;
+  min-width: 100px;
   border-radius: 50%;
   background-color: #0e7490;
 }
@@ -207,10 +207,6 @@ async function handleSubmit() {
 .email-line {
   margin: 0;
   color: #424242;
-}
-
-.contact-image {
-  margin-left: 24px;
 }
 
 .map-container {
@@ -276,5 +272,6 @@ textarea {
 
 .submit-button:hover {
   background-color: #06b6d4;
-}</style>
+}
+</style>
   

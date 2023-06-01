@@ -69,8 +69,8 @@
       We have been active for 17 years with in-depth experience in the Italian market
     </p>
 
-    <div class="flex flex-col items-center sm:flex-row gap-x-20 gap-y-10">
-      <p class="w-full md:w-1/3 text-base sm:text-lg">
+    <div class="flex flex-col items-center xl:flex-row gap-x-20 gap-y-10">
+      <p class="w-full xl:w-2/5 text-base sm:text-lg">
         The Founding partners have been working together since 2006 and the Partners all together have been working
         alongside since 2016, holding 50+ cumulative years of experience in the field. The same Team has managed the
         previous initiative of RIKI.
@@ -79,7 +79,7 @@
         have a “hands-on” approach, supporting the most important operational decisions at different levels of the
         company: from strategy to finance and management team selection.
       </p>
-      <div class="sm:w-3/5 w-full">
+      <div class="xl:w-3/5 w-full">
         <img
           src="/images/about/strategy.jpg"
           alt="team strategy"
