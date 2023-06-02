@@ -13,7 +13,7 @@
         class="flex flex-row items-center my-5 mx-5 px-5"
     >
         <NuxtLink
-            class="text-cyan-600 text-lg sm:text-2xl font-bold text-shadow"
+            :class="color + ' text-lg sm:text-2xl font-bold text-shadow'"
             :to="'/' + pre.toLowerCase()"
         >
             &lt {{ pre }}
@@ -22,6 +22,7 @@
 </template>
 
 <script setup>
+
 let props = defineProps({
     pre: {
         type: String,
@@ -30,6 +31,12 @@ let props = defineProps({
     current: {
         type: String,
         required: true
+    },
+    isColored: {
+        type: Boolean,
+        default: false
     }
 })
+
+let color = props.isColored ? 'text-slate-50' : 'text-cyan-600'
 </script>
