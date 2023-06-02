@@ -5,7 +5,7 @@
       <NuxtLink
         id="logo"
         to="/"
-        class="font-bold text-2xl sm:text-3xl"
+        class="font-bold text-3xl sm:text-4xl"
       >
         <span class="text-[#0e7490]">RIKI</span> VC
       </NuxtLink>

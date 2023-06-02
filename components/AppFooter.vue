@@ -1,6 +1,6 @@
 <template>
-    <footer class="bg-[#454545] px-10 lg:px-20 py-8">
-        <div class="flex flex-row flex-wrap gap-20 text-[#D9D9D9]">
+    <footer class="bg-[#454545] px-10 lg:px-20 py-10">
+        <div class="flex flex-row flex-wrap gap-y-10 gap-x-20 text-[#D9D9D9]">
             <!-- Left Side -->
             <div class="w-full md:w-6/12">
                 <!-- LOGO -->
@@ -25,6 +25,16 @@
                     >
                         Oltre Impact.
                     </a>
+                    <br>
+                    Health Area Image by rawpixel.com on
+                    <a
+                        class="text-cyan-400"
+                        href="https://www.freepik.com/free-vector/dna-biotechnology-science-background-vector-blue-futuristic-style-with-blank-space_16311971.htm#query=DNA&position=5&from_view=search&track=sph"
+                    >
+                        Freepik
+                    </a>
+                    <br>
+                    Other Images are From Unsplash
                 </p>
             </div>
             <!-- Right Side -->

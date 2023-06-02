@@ -54,7 +54,7 @@
                 </h2>
                 <p
                     id="cv"
-                    class="text-black text-justify text-sm sm:text-base"
+                    class="text-black sm:text-justify text-sm sm:text-base"
                 >
                     {{ person.cv }}
                 </p>

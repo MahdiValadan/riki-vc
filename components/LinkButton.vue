@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="bg-[#0e7490] hover:bg-[#06b6d4] transition-all	hover:shadow-md text-sm sm:text-base
+    class="bg-[#0e7490] hover:bg-[#06b6d4] transition-all	hover:shadow-md text-base sm:text-lg
           text-white text-center font-bold py-2 px-3 rounded"
     :to="link"
   >
