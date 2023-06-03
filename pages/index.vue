@@ -27,7 +27,7 @@
             </p>
             <img
                 class="w-full"
-                src="~/assets/images/home/home_intro.jpg"
+                src="/images/home/home_intro.jpg"
                 alt="intro"
             />
             <div class="w-full flex flex-col justify-start pt-20 px-10 lg:px-20 pb-14">
@@ -50,7 +50,7 @@
             class="size-style bg-white rounded-lg min-h-screen flex flex-col items-center px-10 py-16 shadow-md mx-1 my-5 lg:flex-row gap-10">
             <img
                 class="w-full lg:w-3/5"
-                src="~/assets/images/home/team.jpg"
+                src="/images/home/team.jpg"
                 alt="team"
             />
             <div class="flex flex-col justify-end">
