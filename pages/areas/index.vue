@@ -7,6 +7,12 @@
         <div class="flex flex-col items-center min-h-screen">
             <Subtitle text="All Areas" />
 
+            <AlertError
+                class="sticky"
+                v-if="error"
+                msg="Server Connection"
+            />
+
             <Loading v-if="isLoading"></Loading>
 
             <!-- area container -->
@@ -42,12 +48,13 @@ useSeoMeta({
 const supabase = useSupabaseClient()
 let areasList = []
 let isLoading = ref(true)
-
+let error = ref(false)
 onMounted(async () => {
-    let { data, error } = await supabase.from('areas').select('*')
+    let { data, areaError } = await supabase.from('areas').select('*')
+    areasList = data
     isLoading.value = false
-    if (error) {
-        alert('Error: Server Connection')
+    if (areaError) {
+        error.value = true
     } else if (data) {
         areasList = data
     }

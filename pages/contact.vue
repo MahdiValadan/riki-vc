@@ -8,6 +8,12 @@
       msg="Message sent successfully! You'll get response soon!"
     />
 
+    <AlertError
+      class="fixed"
+      v-if="error"
+      msg="Server Connection"
+    />
+
     <div class="flex gap-20 flex-col items-center justify-center w-full lg:flex-row mt-5 mb-7">
       <div class="contact-info justify-center items-center">
         <Subtitle
@@ -124,18 +130,18 @@ let formData = {
 }
 
 let success = ref(false)
+let error = ref(false)
 
 async function handleSubmit() {
 
   const supabase = useSupabaseClient()
-  const { data, error } = await supabase
+  const { data, errorFetch } = await supabase
     .from('contact_us')
     .insert([
       { name: formData.name, email: formData.email, message: formData.message },
     ])
-  if (error) {
-    alert('Error: Server Connection')
-    console.log(error);
+  if (errorFetch) {
+    error.value = true
   } else {
     // alert("Message sent successfully! You'll get response soon!")
     success.value = true

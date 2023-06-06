@@ -56,9 +56,21 @@
             />
 
             <Subtitle :text="title" />
+
+            <AlertError
+                class="sticky"
+                v-if="error"
+                msg="Server Connection"
+            />
+
+
             <Loading v-if="isLoading" />
+
             <Transition name="slide">
-            <div  v-if="!isLoading" class="flex flex-row justify-center flex-wrap gap-8 w-full mt-7">
+                <div
+                    v-if="!isLoading"
+                    class="flex flex-row justify-center flex-wrap gap-8 w-full mt-7"
+                >
                     <Project
                         v-for="project in projectsList"
                         :key="project.id"
@@ -79,6 +91,7 @@
 let projectsList = []
 let areas = []
 let isLoading = ref(true)
+let error = ref(false)
 let active = ref(false)
 
 let props = defineProps({
@@ -110,7 +123,7 @@ let { data: fetchedAreas, error: areasError } = await supabase.from('areas').sel
 areas = fetchedAreas
 
 if (areasError) {
-    alert('Error: Server Connection')
+    error.value = true
 }
 
 // Mounted 
@@ -121,13 +134,13 @@ onMounted(async () => {
     handleResize();
 
     // define variables for getting projects from database
-    let { data, error } = {}
+    let { data, errorFetch } = {}
 
     // Project By Area
     if (props.area) {
-        ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
-        if (error) {
-            alert('Error: Server Connection')
+        ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)'))
+        if (errorFetch) {
+            error.value = true
         } else if (data) {
             let list = data
             for (let project of list) {
@@ -145,26 +158,26 @@ onMounted(async () => {
         switch (props.title) {
             // All Projects
             case 'All Projects':
-                ({ data, error } = await supabase.from('projects').select('*, areas(name)'))
-                if (error) {
-                    alert('Error: Server Connection')
+                ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)'))
+                if (errorFetch) {
+                    error.value = true
                 } else if (data) {
                     projectsList = data
                 }
                 break;
             // Most Relevant Projects
             case 'Most Relevant Projects':
-                ({ data, error } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
-                if (error) {
-                    alert('Error: Server Connection')
+                ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
+                if (errorFetch) {
+                    error.value = true
                 } else if (data) {
                     projectsList = data
                 }
                 break;
             default:
-                ({ data, error } = await supabase.from('projects, areas(name)').select('*'))
-                if (error) {
-                    alert('Error: Server Connection')
+                ({ data, errorFetch } = await supabase.from('projects, areas(name)').select('*'))
+                if (errorFetch) {
+                    error.value = true
                 } else if (data) {
                     projectsList = data
                 }

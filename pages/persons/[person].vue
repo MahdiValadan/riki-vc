@@ -29,16 +29,16 @@
                 </h2>
                 <h2
                     id="role"
-                    class="text-[#0e7490]"
+                    class="text-[#0e7490] text-xl"
                 >
                     {{ person.role }}
                 </h2>
                 <h2 class="text-black">
                     <div
                         id="managed_projects"
-                        class="flex flex-col gap-2"
+                        class="flex flex-col gap-3"
                     >
-                        <span class="font-bold">Project Manager of:</span>
+                        <span class="font-bold text-xl">Project Manager of:</span>
                         <div
                             id="project_buttons"
                             class="flex flex-center gap-3"

@@ -9,6 +9,12 @@
             <Subtitle :text="personTitle"></Subtitle>
         </div>
 
+        <AlertError
+            class="sticky"
+            v-if="error"
+            msg="Server Connection"
+        />
+
         <Loading v-if="isLoading"></Loading>
 
         <!-- members info -->
@@ -47,12 +53,13 @@ useSeoMeta({
 let personTitle = 'All Members'
 let personList = []
 let isLoading = ref(true)
+let error = ref(false)
 
 onMounted(async () => {
     const supabase = useSupabaseClient()
-    let { data, error } = await supabase.from('person').select('*').order('id', { ascending: true })
-    if (error) {
-        alert('Error: Server Connection')
+    let { data, errorPerson } = await supabase.from('person').select('*').order('id', { ascending: true })
+    if (errorPerson) {
+        error.value = true
     } else if (data) {
         personList = data
     }
