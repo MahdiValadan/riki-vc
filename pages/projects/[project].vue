@@ -19,7 +19,7 @@
                     />
 
                     <img
-                        class="border-4 border-[#0e7490] rounded p-3"
+                        class="border-4 border-[#0e7490] rounded p-4 shadow-lg shadow-slate-400"
                         :src="'/images/projects/' + project.image + '.jpg'"
                         alt="project image"
                     >
