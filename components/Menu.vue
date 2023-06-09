@@ -39,8 +39,9 @@ export default {
   computed: {
     isProjectRoute() {
       return (
-        this.$route.path.startsWith('/projects') ||
-        this.$route.matched.some(route => route.name === 'ProjectPages')
+        this.$route.path.toString() === '/projects' ||
+        this.$route.path.toString() === '/projects/most-relevant-projects' ||
+        this.$route.path.startsWith('/projects/projects-by-area')
       );
     }
   }
