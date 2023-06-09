@@ -2,7 +2,7 @@
     <div v-if="!close">
         <div
             role="alert"
-            class="location rounded-xl bg-green-50 p-4 shadow-xl w-80 sm:w-96 mx-auto"
+            class="rounded-xl bg-green-50 p-4 shadow-xl w-80 sm:w-96 mx-auto"
         >
             <div class="flex items-start gap-4">
                 <span class="text-green-600">
@@ -62,9 +62,3 @@ let props = defineProps({
     msg: String,
 })
 </script>
-
-<style>
-.location {
-    margin-top: calc(50vh - 100px);
-}
-</style>

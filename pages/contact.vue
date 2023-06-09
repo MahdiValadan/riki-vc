@@ -135,7 +135,7 @@ let error = ref(false)
 async function handleSubmit() {
 
   const supabase = useSupabaseClient()
-  const { data, errorFetch } = await supabase
+  const { error: errorFetch } = await supabase
     .from('contact_us')
     .insert([
       { name: formData.name, email: formData.email, message: formData.message },
@@ -143,7 +143,6 @@ async function handleSubmit() {
   if (errorFetch) {
     error.value = true
   } else {
-    // alert("Message sent successfully! You'll get response soon!")
     success.value = true
   }
 }

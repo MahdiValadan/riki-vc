@@ -5,18 +5,18 @@
         class="flex flex-col items-center pt-5 pb-14 min-h-screen"
     >
 
-    <AlertError
-            class="fixed"
-            v-if="error"
-            msg="Server connection error. Try it again later"
-        />
-        
+
+
         <!-- title  -->
         <div id="all_persons_title">
             <Subtitle :text="personTitle"></Subtitle>
         </div>
 
-        
+        <AlertError
+            class="sticky"
+            v-if="error"
+            msg="Server connection error. Try it again later"
+        />
 
         <Loading v-if="isLoading"></Loading>
 
@@ -60,10 +60,10 @@ let error = ref(false)
 
 onMounted(async () => {
     const supabase = useSupabaseClient()
-    let { data, errorPerson } = await supabase.from('person').select('*').order('id', { ascending: true })
+    let { data, error: errorPerson } = await supabase.from('person').select('*').order('id', { ascending: true })
     if (data) {
         personList = data
-    } else {
+    } else if (errorPerson) {
         error.value = true
     }
     isLoading.value = false

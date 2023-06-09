@@ -6,7 +6,7 @@
         <div
             id="side-menu"
             class="fixed w-screen h-full lg:static lg:w-72 lg:h-auto bg-white/70 backdrop-blur-xl
-                    py-6 px-10"
+                    py-6 px-10 z-30"
             v-if="active"
         >
             <ul class="flex flex-col gap-4 font-medium text-lg">
@@ -58,7 +58,7 @@
             <Subtitle :text="title" />
 
             <AlertError
-                class="fixed"
+                class="sticky"
                 v-if="error"
                 msg="Server connection error. Try it again later."
             />
@@ -134,7 +134,7 @@ onMounted(async () => {
     handleResize();
 
     // define variables for getting projects from database
-    let { data, errorFetch } = {}
+    let { data, error: errorFetch } = {}
 
     // Project By Area
     if (props.area) {
@@ -158,7 +158,7 @@ onMounted(async () => {
         switch (props.title) {
             // All Projects
             case 'All Projects':
-                ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)'))
+                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)'))
                 if (errorFetch) {
                     error.value = true
                 } else if (data) {
@@ -167,7 +167,7 @@ onMounted(async () => {
                 break;
             // Most Relevant Projects
             case 'Most Relevant Projects':
-                ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
+                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
                 if (errorFetch) {
                     error.value = true
                 } else if (data) {
@@ -175,7 +175,7 @@ onMounted(async () => {
                 }
                 break;
             default:
-                ({ data, errorFetch } = await supabase.from('projects, areas(name)').select('*'))
+                ({ data, error: errorFetch } = await supabase.from('projects, areas(name)').select('*'))
                 if (errorFetch) {
                     error.value = true
                 } else if (data) {
