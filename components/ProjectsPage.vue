@@ -58,9 +58,9 @@
             <Subtitle :text="title" />
 
             <AlertError
-                class="sticky"
+                class="fixed"
                 v-if="error"
-                msg="Server Connection"
+                msg="Server connection error. Try it again later."
             />
 
 
