@@ -1,97 +1,61 @@
 <template>
-    <div class="lds-grid">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="lds-ripple">
         <div></div>
         <div></div>
     </div>
 </template>
 
 <style>
-.lds-grid {
+.lds-ripple {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    margin-top: 35px;
+    width: 130px;
+    height: 130px;
 }
 
-.lds-grid div {
+.lds-ripple div {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    border: 4px solid #155e75;
+    opacity: 1;
     border-radius: 50%;
-    background: black;
-    animation: lds-grid 1.2s linear infinite;
+    animation: lds-ripple 0.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
-.lds-grid div:nth-child(1) {
-    top: 8px;
-    left: 8px;
-    animation-delay: 0s;
+.lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
 }
 
-.lds-grid div:nth-child(2) {
-    top: 8px;
-    left: 32px;
-    animation-delay: -0.4s;
-}
+@keyframes lds-ripple {
+    0% {
+        top: 60px;
+        left: 60px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
 
-.lds-grid div:nth-child(3) {
-    top: 8px;
-    left: 56px;
-    animation-delay: -0.8s;
-}
+    4.9% {
+        top: 60px;
+        left: 60px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
 
-.lds-grid div:nth-child(4) {
-    top: 32px;
-    left: 8px;
-    animation-delay: -0.4s;
-}
-
-.lds-grid div:nth-child(5) {
-    top: 32px;
-    left: 32px;
-    animation-delay: -0.8s;
-}
-
-.lds-grid div:nth-child(6) {
-    top: 32px;
-    left: 56px;
-    animation-delay: -1.2s;
-}
-
-.lds-grid div:nth-child(7) {
-    top: 56px;
-    left: 8px;
-    animation-delay: -0.8s;
-}
-
-.lds-grid div:nth-child(8) {
-    top: 56px;
-    left: 32px;
-    animation-delay: -1.2s;
-}
-
-.lds-grid div:nth-child(9) {
-    top: 56px;
-    left: 56px;
-    animation-delay: -1.6s;
-}
-
-@keyframes lds-grid {
-
-    0%,
-    100% {
+    5% {
+        top: 60px;
+        left: 60px;
+        width: 0;
+        height: 0;
         opacity: 1;
     }
 
-    50% {
-        opacity: 0.5;
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 120px;
+        height: 120px;
+        opacity: 0;
     }
-}
-</style>
+}</style>
