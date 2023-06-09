@@ -138,7 +138,7 @@ onMounted(async () => {
 
     // Project By Area
     if (props.area) {
-        ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)'))
+        ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)').order('name', { ascending: true }))
         if (errorFetch) {
             error.value = true
         } else if (data) {
@@ -158,7 +158,7 @@ onMounted(async () => {
         switch (props.title) {
             // All Projects
             case 'All Projects':
-                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)'))
+                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').order('name', { ascending: true }))
                 if (errorFetch) {
                     error.value = true
                 } else if (data) {
@@ -167,7 +167,7 @@ onMounted(async () => {
                 break;
             // Most Relevant Projects
             case 'Most Relevant Projects':
-                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true))
+                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true).order('name', { ascending: true }))
                 if (errorFetch) {
                     error.value = true
                 } else if (data) {
@@ -175,7 +175,7 @@ onMounted(async () => {
                 }
                 break;
             default:
-                ({ data, error: errorFetch } = await supabase.from('projects, areas(name)').select('*'))
+                ({ data, error: errorFetch } = await supabase.from('projects, areas(name)').select('*').order('name', { ascending: true }))
                 if (errorFetch) {
                     error.value = true
                 } else if (data) {
