@@ -10,7 +10,7 @@
                 <NuxtLink to="/persons">Persons</NuxtLink>
             </li>
             <li class="transition hover:text-[#0e7490]" @click="closeMenu">
-                <NuxtLink to="/projects">Projects</NuxtLink>
+                <NuxtLink to="/projects" :class="{ 'project-link': isProjectRoute }">Projects</NuxtLink>
             </li>
             <li class="transition hover:text-[#0e7490]" @click="closeMenu">
                 <NuxtLink to="/areas">Areas</NuxtLink>
@@ -32,4 +32,17 @@ let closeMenu = () => {
     isMenuOpen.value = false
     emits('menuLinkClicked', true)
 }
+</script>
+
+<script>
+export default {
+  computed: {
+    isProjectRoute() {
+      return (
+        this.$route.path.startsWith('/projects') ||
+        this.$route.matched.some(route => route.name === 'ProjectPages')
+      );
+    }
+  }
+};
 </script>
