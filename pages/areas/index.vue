@@ -2,16 +2,15 @@
     <!-- Main Container -->
     <div
         id="all_areas_container"
-        class="flex flex-col justify-center items-center pt-5 pb-14"
+        class="flex flex-col items-center pt-5 pb-14 min-h-screen"
     >
-        <div class="flex flex-col items-center min-h-screen">
-            <Subtitle text="All Areas" />
-
-            <AlertError
-                class="sticky"
+    <AlertError
+                class="fixed"
                 v-if="error"
-                msg="Server Connection"
+                msg="Server connection error. Try it again later."
             />
+        <div class="flex flex-col items-center justify-center">
+            <Subtitle text="All Areas" />
 
             <Loading v-if="isLoading"></Loading>
 
@@ -51,13 +50,13 @@ let isLoading = ref(true)
 let error = ref(false)
 onMounted(async () => {
     let { data, areaError } = await supabase.from('areas').select('*')
-    areasList = data
-    isLoading.value = false
-    if (areaError) {
-        error.value = true
-    } else if (data) {
+    
+    if (data) {
         areasList = data
+    } else {
+        error.value = true
     }
+    isLoading.value = false
 })
 
 </script>
