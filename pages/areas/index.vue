@@ -51,7 +51,7 @@ let areasList = []
 let isLoading = ref(true)
 let error = ref(false)
 onMounted(async () => {
-    let { data, error: areaError } = await supabase.from('areas').select('*').order('name', { ascending: false })
+    let { data, error: areaError } = await supabase.from('areas').select('id, name, image').order('name', { ascending: false })
 
     if (data) {
         areasList = data
