@@ -139,7 +139,7 @@ onMounted(async () => {
     // All Projects & Projects by Area
     if (props.title === 'All Projects' || props.area) {
 
-        ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').order('name', { ascending: true }))
+        ({ data, error: errorFetch } = await supabase.from('projects').select('id, name, image , areas(name)').order('name', { ascending: true }))
         if (errorFetch) {
             error.value = true
         } else if (data) {
