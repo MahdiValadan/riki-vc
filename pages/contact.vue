@@ -133,6 +133,9 @@ let success = ref(false)
 let error = ref(false)
 
 async function handleSubmit() {
+  //init
+  error.value = false
+  success.value = false
 
   const supabase = useSupabaseClient()
   const { error: errorFetch } = await supabase
