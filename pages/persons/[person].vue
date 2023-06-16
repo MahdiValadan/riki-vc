@@ -92,7 +92,7 @@ if (error) {
 }
 else if (data[0]) {
     person = data[0]
-    let { data: projectsData, error: projectsError } = await supabase.from('projects').select('*').eq('person_id', personId)
+    let { data: projectsData, error: projectsError } = await supabase.from('projects').select('id, name').eq('person_id', personId)
 
     if (projectsError) {
         // console.error('Error getting project names:', projectsError.message)

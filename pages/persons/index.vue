@@ -60,7 +60,7 @@ let error = ref(false)
 
 onMounted(async () => {
     const supabase = useSupabaseClient()
-    let { data, error: errorPerson } = await supabase.from('person').select('*').order('id', { ascending: true })
+    let { data, error: errorPerson } = await supabase.from('person').select('id, name, image, role').order('id', { ascending: true })
     if (data) {
         personList = data
     } else if (errorPerson) {
