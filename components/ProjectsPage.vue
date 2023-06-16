@@ -136,54 +136,41 @@ onMounted(async () => {
     // define variables for getting projects from database
     let { data, error: errorFetch } = {}
 
-    // Project By Area
-    if (props.area) {
-        ({ data, errorFetch } = await supabase.from('projects').select('*, areas(name)').order('name', { ascending: true }))
+    // All Projects & Projects by Area
+    if (props.title === 'All Projects' || props.area) {
+
+        ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').order('name', { ascending: true }))
         if (errorFetch) {
             error.value = true
         } else if (data) {
-            let list = data
-            for (let project of list) {
-                for (let areaOfProject of project.areas) {
-                    if (areaOfProject.name === props.area) {
-                        projectsList.push(project)
+            // Project by Area
+            if (props.area) {
+                let list = data
+                for (let project of list) {
+                    for (let areaOfProject of project.areas) {
+                        if (areaOfProject.name === props.area) {
+                            projectsList.push(project)
+                        }
                     }
                 }
             }
+            // All Projects
+            else {
+                projectsList = data
+            }
         }
+    }
+    // Most Relevant Projects
+    else if (props.title === 'Most Relevant Projects') {
+        ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true).order('name', { ascending: true }))
+        if (errorFetch) {
+            error.value = true
+        } else if (data) {
+            projectsList = data
+        }
+
     }
 
-    // Other Projects
-    else {
-        switch (props.title) {
-            // All Projects
-            case 'All Projects':
-                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').order('name', { ascending: true }))
-                if (errorFetch) {
-                    error.value = true
-                } else if (data) {
-                    projectsList = data
-                }
-                break;
-            // Most Relevant Projects
-            case 'Most Relevant Projects':
-                ({ data, error: errorFetch } = await supabase.from('projects').select('*, areas(name)').eq('isMR', true).order('name', { ascending: true }))
-                if (errorFetch) {
-                    error.value = true
-                } else if (data) {
-                    projectsList = data
-                }
-                break;
-            default:
-                ({ data, error: errorFetch } = await supabase.from('projects, areas(name)').select('*').order('name', { ascending: true }))
-                if (errorFetch) {
-                    error.value = true
-                } else if (data) {
-                    projectsList = data
-                }
-                break;
-        }
-    }
     isLoading.value = false
 })
 
