@@ -44,10 +44,10 @@
                             class="flex flex-center gap-3"
                         >
                             <LinkButton
-                                v-for="(projectName, index) in projectNames"
-                                :key="index"
-                                :buttonText="projectName"
-                                :link="`/projects/${index}`"
+                                v-for="project in managedProjects"
+                                :key="project.id"
+                                :buttonText="project.name"
+                                :link="`/projects/${project.id}`"
                             ></LinkButton>
                         </div>
                     </div>
@@ -81,32 +81,17 @@ if (isNaN(personId)) {
 }
 // 
 let person = {}
-let projectNames = {}
+let managedProjects = []
 
-// Fetch from DB
-const supabase = useSupabaseClient()
-let { data, error } = await supabase.from('person').select('*').eq('id', personId)
-if (error) {
-    // alert('Error: Server Connection')
-    throw createError({ statusCode: 500, statusMessage: 'Server Error' })
-}
-else if (data[0]) {
-    person = data[0]
-    let { data: projectsData, error: projectsError } = await supabase.from('projects').select('id, name').eq('person_id', personId)
-
-    if (projectsError) {
-        // console.error('Error getting project names:', projectsError.message)
-        throw createError({ statusCode: 500, statusMessage: 'Server Error' })
+try {
+    const fetchedPerson = await $fetch(`/api/persons/${personId}`)
+    person = fetchedPerson
+    managedProjects = fetchedPerson.projects
+} catch (error) {
+    if (error?.statusCode === 404 || error?.response?.status === 404) {
+        throw createError({ statusCode: 404, statusMessage: 'Person not found' })
     }
 
-    projectNames = projectsData.reduce((acc, project) => {
-        acc[project.id] = project.name;
-        return acc;
-    }, {});
-
-    // console.log('Project names:', projectNames)
-}
-else {
-    throw createError({ statusCode: 404, statusMessage: 'Person not found' })
+    throw createError({ statusCode: 500, statusMessage: 'Server Error' })
 }
 </script>

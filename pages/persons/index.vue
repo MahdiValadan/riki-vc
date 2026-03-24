@@ -59,11 +59,9 @@ let isLoading = ref(true)
 let error = ref(false)
 
 onMounted(async () => {
-    const supabase = useSupabaseClient()
-    let { data, error: errorPerson } = await supabase.from('person').select('id, name, image, role').order('id', { ascending: true })
-    if (data) {
-        personList = data
-    } else if (errorPerson) {
+    try {
+        personList = await $fetch('/api/persons')
+    } catch {
         error.value = true
     }
     isLoading.value = false

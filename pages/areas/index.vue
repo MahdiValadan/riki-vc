@@ -46,16 +46,13 @@ useSeoMeta({
     description: ' Areas page of RIKI Venture Capital which gives information about all areas'
 })
 
-const supabase = useSupabaseClient()
 let areasList = []
 let isLoading = ref(true)
 let error = ref(false)
 onMounted(async () => {
-    let { data, error: areaError } = await supabase.from('areas').select('id, name, image').order('name', { ascending: false })
-
-    if (data) {
-        areasList = data
-    } else if (areaError) {
+    try {
+        areasList = await $fetch('/api/areas')
+    } catch {
         error.value = true
     }
 

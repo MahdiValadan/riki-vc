@@ -20,7 +20,7 @@
 
                     <img
                         class="border-4 border-[#0e7490] rounded p-4 shadow-lg shadow-slate-400"
-                        :src="'/images/projects/' + project.image + '.jpg'"
+                        :src="'/api/storage/images/projects/' + project.image + '.jpg'"
                         alt="project image"
                     >
                     <LinkButton
@@ -173,17 +173,14 @@ let project = {}
 
 let isLoading = true
 
-const supabase = useSupabaseClient()
-let { data, error } = await supabase.from('projects').select('*, person(id, name), areas(id, name)').eq('id', projectID)
-if (error) {
-    // alert('Error: Server Connection')
+try {
+    project = await $fetch(`/api/projects/${projectID}`)
+} catch (error) {
+    if (error?.statusCode === 404 || error?.response?.status === 404) {
+        throw createError({ statusCode: 404, statusMessage: 'Project not found' })
+    }
+
     throw createError({ statusCode: 500, statusMessage: 'Server Error' })
-}
-else if (data[0]) {
-    project = data[0]
-}
-else {
-    throw createError({ statusCode: 404, statusMessage: 'Project not found' })
 }
 isLoading = false
 

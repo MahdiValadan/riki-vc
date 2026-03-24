@@ -40,20 +40,18 @@ const areaID = route.params.area
 if (isNaN(areaID)) {
     throw createError({ statusCode: 404, statusMessage: 'Area not found' })
 }
-const supabase = useSupabaseClient()
 let area = {}
 let backgroundUrl = ""
 
-let { data, error } = await supabase.from('areas').select('*').eq('id', areaID)
-if (error) {
-    // alert('Error: Server Connection')
-    throw createError({ statusCode: 500, statusMessage: 'Server Error' })
-
-} else if (data[0]) {
-    area = data[0]
+try {
+    area = await $fetch(`/api/areas/${areaID}`)
     backgroundUrl = '/images/areas/' + area.image
-} else {
-    throw createError({ statusCode: 404, statusMessage: 'Area not found' })
+} catch (error) {
+    if (error?.statusCode === 404 || error?.response?.status === 404) {
+        throw createError({ statusCode: 404, statusMessage: 'Area not found' })
+    }
+
+    throw createError({ statusCode: 500, statusMessage: 'Server Error' })
 }
 
 </script>

@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     ssr: true,
-    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/supabase'],
+    modules: ['@nuxtjs/tailwindcss'],
     css: ['~/assets/style.css'],
     app: {
         head: {

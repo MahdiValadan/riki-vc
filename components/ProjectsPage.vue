@@ -115,14 +115,10 @@ function handleResize() {
     }
 }
 
-// getting areas from database
-const supabase = useSupabaseClient()
-
-let { data: fetchedAreas, error: areasError } = await supabase.from('areas').select('name').order('name', { ascending: true })
-
-areas = fetchedAreas
-
-if (areasError) {
+try {
+    const fetchedAreas = await $fetch('/api/areas')
+    areas = [...fetchedAreas].sort((left, right) => left.name.localeCompare(right.name))
+} catch {
     error.value = true
 }
 
@@ -133,42 +129,17 @@ onMounted(async () => {
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    // define variables for getting projects from database
-    let { data, error: errorFetch } = {}
-
-    // All Projects & Projects by Area
-    if (props.title === 'All Projects' || props.area) {
-
-        ({ data, error: errorFetch } = await supabase.from('projects').select('id, name, image, areas(name)').order('name', { ascending: true }))
-        if (errorFetch) {
-            error.value = true
-        } else if (data) {
-            // Project by Area
-            if (props.area) {
-                let list = data
-                for (let project of list) {
-                    for (let areaOfProject of project.areas) {
-                        if (areaOfProject.name === props.area) {
-                            projectsList.push(project)
-                        }
-                    }
-                }
-            }
-            // All Projects
-            else {
-                projectsList = data
-            }
+    try {
+        if (props.title === 'Most Relevant Projects') {
+            projectsList = await $fetch('/api/projects', {
+                query: { mostRelevant: 'true' }
+            })
+        } else {
+            const query = props.area ? { area: props.area } : undefined
+            projectsList = await $fetch('/api/projects', { query })
         }
-    }
-    // Most Relevant Projects
-    else if (props.title === 'Most Relevant Projects') {
-        ({ data, error: errorFetch } = await supabase.from('projects').select('id, name, image, areas(name)').eq('isMR', true).order('name', { ascending: true }))
-        if (errorFetch) {
-            error.value = true
-        } else if (data) {
-            projectsList = data
-        }
-
+    } catch {
+        error.value = true
     }
 
     isLoading.value = false

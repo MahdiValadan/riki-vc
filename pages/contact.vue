@@ -137,16 +137,21 @@ async function handleSubmit() {
   error.value = false
   success.value = false
 
-  const supabase = useSupabaseClient()
-  const { error: errorFetch } = await supabase
-    .from('contact_us')
-    .insert([
-      { name: formData.name, email: formData.email, message: formData.message },
-    ])
-  if (errorFetch) {
-    error.value = true
-  } else {
+  try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      }
+    })
     success.value = true
+    formData.name = ""
+    formData.email = ""
+    formData.message = ""
+  } catch {
+    error.value = true
   }
 }
 
