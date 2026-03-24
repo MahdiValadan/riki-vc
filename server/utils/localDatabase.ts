@@ -1,5 +1,12 @@
-import { readFile, writeFile } from 'node:fs/promises'
-import { extname, resolve, sep } from 'node:path'
+import {
+  areasCsv,
+  contactCsv,
+  personsCsv,
+  projectAreasCsv,
+  projectsCsv,
+} from '../generated/localDatabaseData'
+import { access, readFile, writeFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 
 export type AreaRecord = {
   id: number
@@ -48,7 +55,6 @@ type DatabaseState = {
   persons: PersonRecord[]
   projects: ProjectRecord[]
   projectAreas: ProjectAreaRecord[]
-  contacts: ContactRecord[]
 }
 
 type ProjectSummary = {
@@ -67,9 +73,8 @@ type PersonDetail = PersonRecord & {
   projects: Pick<ProjectRecord, 'id' | 'name'>[]
 }
 
-const databaseRoot = resolve(process.cwd(), 'database')
-const tablesRoot = resolve(databaseRoot, 'tables')
-const storageRoot = resolve(databaseRoot, 'storage')
+const tablesRoot = resolve(process.cwd(), 'database', 'tables')
+const tempContactsPath = '/tmp/contact_us.csv'
 
 function parseCsv(content: string): string[][] {
   const rows: string[][] = []
@@ -267,26 +272,12 @@ function toContactRecord(record: Record<string, string>): ContactRecord {
   }
 }
 
-async function readTable(tableFile: string): Promise<Record<string, string>[]> {
-  const content = await readFile(resolve(tablesRoot, tableFile), 'utf8')
-  return parseCsvObjects(content)
-}
-
 async function readDatabase(): Promise<DatabaseState> {
-  const [areas, persons, projects, projectAreas, contacts] = await Promise.all([
-    readTable('areas.csv'),
-    readTable('person.csv'),
-    readTable('projects.csv'),
-    readTable('project_area.csv'),
-    readTable('contact_us.csv'),
-  ])
-
   return {
-    areas: areas.map(toAreaRecord),
-    persons: persons.map(toPersonRecord),
-    projects: projects.map(toProjectRecord),
-    projectAreas: projectAreas.map(toProjectAreaRecord),
-    contacts: contacts.map(toContactRecord),
+    areas: parseCsvObjects(areasCsv).map(toAreaRecord),
+    persons: parseCsvObjects(personsCsv).map(toPersonRecord),
+    projects: parseCsvObjects(projectsCsv).map(toProjectRecord),
+    projectAreas: parseCsvObjects(projectAreasCsv).map(toProjectAreaRecord),
   }
 }
 
@@ -385,41 +376,20 @@ export async function getProjectById(id: number): Promise<ProjectDetail | null> 
   }
 }
 
-export function getStorageFilePath(...segments: string[]): string {
-  const filePath = resolve(storageRoot, ...segments)
-  const normalizedRoot = `${storageRoot}${sep}`
+async function resolveWritableContactsPath(): Promise<string> {
+  const projectContactsPath = resolve(tablesRoot, 'contact_us.csv')
 
-  if (filePath !== storageRoot && !filePath.startsWith(normalizedRoot)) {
-    throw new Error('Invalid storage path')
+  if (!process.env.VERCEL) {
+    return projectContactsPath
   }
 
-  return filePath
-}
-
-export function getMimeType(filePath: string): string {
-  const extension = extname(filePath).toLowerCase()
-
-  if (extension === '.jpg' || extension === '.jpeg') {
-    return 'image/jpeg'
+  try {
+    await access(tempContactsPath)
+  } catch {
+    await writeFile(tempContactsPath, contactCsv, 'utf8')
   }
 
-  if (extension === '.png') {
-    return 'image/png'
-  }
-
-  if (extension === '.webp') {
-    return 'image/webp'
-  }
-
-  if (extension === '.gif') {
-    return 'image/gif'
-  }
-
-  if (extension === '.svg') {
-    return 'image/svg+xml'
-  }
-
-  return 'application/octet-stream'
+  return tempContactsPath
 }
 
 export async function createContactMessage(input: {
@@ -427,7 +397,7 @@ export async function createContactMessage(input: {
   email: string
   message: string
 }): Promise<ContactRecord> {
-  const tablePath = resolve(tablesRoot, 'contact_us.csv')
+  const tablePath = await resolveWritableContactsPath()
   const tableContent = await readFile(tablePath, 'utf8')
   const existingRecords = parseCsvObjects(tableContent).map(toContactRecord)
   const nextId = existingRecords.reduce((maxId, record) => Math.max(maxId, record.id), 0) + 1

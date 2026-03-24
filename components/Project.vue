@@ -5,7 +5,7 @@
         class="bg-[#0e7490] text-white w-60 h-64 shadow-lg hover:animate-pulse"
     >
         <img
-            :src="'/api/storage/images/projects/' + project.image + '.jpg'"
+            :src="'/images/projects/' + project.image + '.jpg'"
             alt="project image"
         >
         <div class="p-4">

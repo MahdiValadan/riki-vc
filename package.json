@@ -5,6 +5,10 @@
     "node": "24.x"
   },
   "scripts": {
+    "prebuild": "node scripts/sync-database-storage.mjs",
+    "predev": "node scripts/sync-database-storage.mjs",
+    "pregenerate": "node scripts/sync-database-storage.mjs",
+    "prepreview": "node scripts/sync-database-storage.mjs",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",

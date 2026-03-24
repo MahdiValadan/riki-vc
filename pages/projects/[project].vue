@@ -20,7 +20,7 @@
 
                     <img
                         class="border-4 border-[#0e7490] rounded p-4 shadow-lg shadow-slate-400"
-                        :src="'/api/storage/images/projects/' + project.image + '.jpg'"
+                        :src="'/images/projects/' + project.image + '.jpg'"
                         alt="project image"
                     >
                     <LinkButton
